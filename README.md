@@ -31,8 +31,7 @@ From then on you can chain methods like there's no tomorrow
 echo string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // outputs "MIDDLE"
 ```
 
-The following methods are provided:
-
+## Provided methods
 ### between
 ```php
 /**
