@@ -130,7 +130,7 @@ class String
     }
 
     /**
-     * Replace the last occurrence of search by replace.
+     * Replace the last occurrence of a string.
      *
      * @param $search
      * @param $replace

@@ -110,7 +110,7 @@ string($longText)->tease(10); // Now that...
 ### replaceLast
 ```php
 /**
- * Replace the last occurrence of search by replace.
+ * Replace the last occurrence of a string.
  *
  * @param $search
  * @param $replace
