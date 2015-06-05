@@ -46,7 +46,7 @@ public function between($start, $end)
 ```
 
 Example:
-```
+```php
 string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // MIDDLE
 ```
 
@@ -61,7 +61,7 @@ public function toUpper()
 ```
 
 Example:
-```
+```php
 string('string')->toUpper(); // STRING
 ```
 
@@ -76,9 +76,9 @@ public function toLower()
 ```
 
 Example:
-```
+```php
 string('STRING')->toLower(); // string
-``
+```
 
 
 ## Change log
