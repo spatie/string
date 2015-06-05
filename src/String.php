@@ -24,32 +24,28 @@ class String
      *
      * @param $start
      * @param $end
+     *
      * @return String
      */
     public function between($start, $end)
     {
-        if ($start == '' && $end == '')
-        {
+        if ($start == '' && $end == '') {
             return $this;
         }
 
-        if ($start != '' && strpos($this->string, $start) === false)
-        {
+        if ($start != '' && strpos($this->string, $start) === false) {
             return new String();
         }
 
-        if ($end != '' && strpos($this->string, $end) === false)
-        {
+        if ($end != '' && strpos($this->string, $end) === false) {
             return new String();
         }
 
-        if ($start == '')
-        {
+        if ($start == '') {
             return new String(substr($this->string, 0, strpos($this->string, $end)));
         }
 
-        if ($end == '')
-        {
+        if ($end == '') {
             return new String(substr($this->string, strpos($this->string, $start) + strlen($start)));
         }
 
@@ -87,16 +83,16 @@ class String
      * of the string is always a full word concatinated with the
      * specified moreTextIndicator.
      *
-     * @param int $length
+     * @param int    $length
      * @param string $moreTextIndicator
+     *
      * @return String
      */
     public function tease($length = 200, $moreTextIndicator = '...')
     {
         $sanitizedString = $this->sanitizeForTeaste($this->string);
 
-        if (strlen($sanitizedString) == 0)
-        {
+        if (strlen($sanitizedString) == 0) {
             return new String();
         }
 
@@ -114,6 +110,7 @@ class String
      * Sanitize the string for teasing.
      *
      * @param $string
+     *
      * @return string
      */
     private function sanitizeForTeaste($string)
@@ -134,6 +131,7 @@ class String
      *
      * @param $search
      * @param $replace
+     *
      * @return String
      */
     public function replaceLast($search, $replace)
@@ -153,5 +151,39 @@ class String
         return new String($resultString);
     }
 
-}
+    /**
+     * Prefix a string.
+     *
+     * @param $string
+     *
+     * @return String
+     */
+    public function prefix($string)
+    {
+        return new String($string.$this->string);
+    }
 
+    /**
+     * Suffix a string.
+     *
+     * @param $string
+     *
+     * @return String
+     */
+    public function suffix($string)
+    {
+        return new String($this->string.$string);
+    }
+
+    /**
+     * Concatenate a string.
+     *
+     * @param $string
+     *
+     * @return String
+     */
+    public function concat($string)
+    {
+        return $this->suffix($string);
+    }
+}

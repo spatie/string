@@ -125,6 +125,41 @@ $sentence = 'A good thing is not a good thing.';
 string($sentence)->replaceLast('good', 'bad'); // A good thing is not a bad thing.
 ```
 
+### prefix
+```php
+/**
+ * Prefix a string.
+ *
+ * @param $string
+ * @return String
+ */
+public function prefix($string)
+```
+
+Example:
+```php
+string('world')->prefix('hello '); //hello world
+```
+
+### suffix
+```php
+/**
+ * Suffix a string.
+ *
+ * @param $string
+ * @return String
+ */
+public function suffix($string)
+```
+
+Example:
+```php
+string('hello')->suffix(' world'); // hello world
+```
+
+### concat
+This is identical to the `suffix`-function.
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
