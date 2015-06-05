@@ -43,12 +43,12 @@ The following methods are provided:
  * @return String
  */
 public function between($start, $end)
-``
+```
 
 Example:
 ```
 string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // MIDDLE
-``
+```
 
 ### toUpper
 ```php
