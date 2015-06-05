@@ -129,8 +129,29 @@ class String
         return $string;
     }
 
+    /**
+     * Replace the last occurrence of search by replace.
+     *
+     * @param $search
+     * @param $replace
+     * @return String
+     */
+    public function replaceLast($search, $replace)
+    {
+        if ($search == '') {
+            return $this;
+        }
 
+        $position = strrpos($this->string, $search);
 
+        if ($position === false) {
+            return $this;
+        }
+
+        $resultString = substr_replace($this->string, $replace, $position, strlen($search));
+
+        return new String($resultString);
+    }
 
 }
 

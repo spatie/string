@@ -104,7 +104,25 @@ public function tease($length = 200, $moreTextIndicator = '...')
 Example:
 ```php
 $longText = 'Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime.'
-string($longText')->tease(10); // Now that...
+string($longText)->tease(10); // Now that...
+```
+
+### replaceLast
+```php
+/**
+ * Replace the last occurrence of search by replace.
+ *
+ * @param $search
+ * @param $replace
+ * @return String
+ */
+public function replaceLast($search, $replace)
+```
+
+Example:
+```php
+$sentence = 'A good thing is not a good thing.';
+string($sentence)->replaceLast('good', 'bad'); // A good thing is not a bad thing.
 ```
 
 ## Change log
