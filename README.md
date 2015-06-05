@@ -79,6 +79,27 @@ Example:
 string('STRING')->toLower(); // string
 ```
 
+### tease
+```php
+/**
+ * Shortens a string in a pretty way. It will clean it by trimming
+ * it, remove all double spaces and html. If the string is then still
+ * longer than the specified $length it will be shortened. The end
+ * of the string is always a full word concatinated with the
+ * specified moreTextIndicator.
+ *
+ * @param int $length
+ * @param string $moreTextIndicator
+ * @return String
+ */
+public function tease($length = 200, $moreTextIndicator = '...')
+```
+
+Example:
+```php
+$longText = 'Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime.'
+string($longText')->tease(10); // Now that...
+```
 
 ## Change log
 

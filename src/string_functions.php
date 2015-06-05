@@ -2,7 +2,13 @@
 
 use Spatie\String\String;
 
-function string($string)
+/**
+ * Poor man's string factory.
+ *
+ * @param string $string
+ * @return String
+ */
+function string($string = '')
 {
     return new String($string);
 }

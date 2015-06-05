@@ -6,7 +6,7 @@ class String
 {
     protected $string;
 
-    public function __construct($string)
+    public function __construct($string = '')
     {
         $this->string = $string;
     }
@@ -35,12 +35,12 @@ class String
 
         if ($start != '' && strpos($this->string, $start) === false)
         {
-            return new String('');
+            return new String();
         }
 
         if ($end != '' && strpos($this->string, $end) === false)
         {
-            return new String('');
+            return new String();
         }
 
         if ($start == '')
@@ -78,6 +78,55 @@ class String
     public function toLower()
     {
         return new String(strtolower($this->string));
+    }
+
+    /**
+     * Shortens a string in a pretty way. It will clean it by trimming
+     * it, remove all double spaces and html. If the string is then still
+     * longer than the specified $length it will be shortened. The end
+     * of the string is always a full word concatinated with the
+     * specified moreTextIndicator.
+     *
+     * @param int $length
+     * @param string $moreTextIndicator
+     * @return String
+     */
+    public function tease($length = 200, $moreTextIndicator = '...')
+    {
+        $sanitizedString = $this->sanitizeForTeaste($this->string);
+
+        if (strlen($sanitizedString) == 0)
+        {
+            return new String();
+        }
+
+        if (strlen($sanitizedString) <= $length) {
+            return new String($sanitizedString);
+        }
+
+        $ww = wordwrap($sanitizedString, $length, "\n");
+        $shortenedString = substr($ww, 0, strpos($ww, "\n")).$moreTextIndicator;
+
+        return new String($shortenedString);
+    }
+
+    /**
+     * Sanitize the string for teasing.
+     *
+     * @param $string
+     * @return string
+     */
+    private function sanitizeForTeaste($string)
+    {
+        $string = trim($string);
+
+        //remove html
+        $string = strip_tags($string);
+
+        //replace multiple spaces
+        $string = preg_replace("/\s+/", ' ', $string);
+
+        return $string;
     }
 
 
