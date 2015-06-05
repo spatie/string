@@ -21,15 +21,15 @@ composer require spatie/string
 ## Usage
 
 First you must wrap a native string in a String-object. This can be done with the `string`-function.
-```
+```php
 string('myFirstString');
 ```
 
 From then on you can chain methods like there's no tomorrow
 
+```php
+echo string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // outputs "MIDDLE"
 ```
-echo string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // MIDDLE
-``
 
 The following methods are provided:
 
