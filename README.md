@@ -172,6 +172,11 @@ You can run the tests with:
 vendor/bin/phpunit
 ```
 
+## Alternatives
+This package is primarily built for usage in our own projects. If you need a more full fledged string package take at look at these ones:
+- [Anahkiasen/underscore-php](https://github.com/Anahkiasen/underscore-php)
+- [danielstjules/Stringy](https://github.com/danielstjules/Stringy)
+
 ## Contributing
 
 We are very happy to receive pull requests to add functions to this class. Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
