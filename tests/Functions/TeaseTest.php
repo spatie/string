@@ -55,7 +55,7 @@ class TeaseTest extends \PHPUnit_Framework_TestCase
      */
     public function it_trims_the_original_text()
     {
-        $this->assertEquals($this->shortText,(string)string('<b>' . $this->shortText . '</b>')->tease(200));
+        $this->assertEquals($this->shortText,(string)string(' ' . $this->shortText . ' ')->tease(200));
     }
 
     /**
