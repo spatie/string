@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.4.0 - 2015-06-07
+
+### Added
+-  integration with underscore
+
 ## 1.3.0 - 2015-06-05
 
 ### Added
