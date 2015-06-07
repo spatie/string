@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\String\Intergration;
+namespace Spatie\String\Integrations;
 
 use Spatie\String\String;
 

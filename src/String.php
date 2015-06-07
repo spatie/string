@@ -3,7 +3,7 @@
 namespace Spatie\String;
 
 use Spatie\String\Exceptions\UnknownFunctionException;
-use Spatie\String\Intergration\Underscore;
+use Spatie\String\Integrations\Underscore;
 
 class String
 {
