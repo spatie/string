@@ -2,10 +2,12 @@
 
 namespace Spatie\String;
 
+use ArrayAccess;
 use Spatie\String\Exceptions\UnknownFunctionException;
+use Spatie\String\Exceptions\UnsetOffsetException;
 use Spatie\String\Integrations\Underscore;
 
-class String
+class String implements ArrayAccess
 {
     protected $string;
 
@@ -190,6 +192,16 @@ class String
         return $this->suffix($string);
     }
 
+    /**
+     * Unknown methods calls will be handled by various integrations.
+     *
+     * @param $method
+     * @param $args
+     *
+     * @return mixed|String
+     *
+     * @throws UnknownFunctionException
+     */
     public function __call($method, $args)
     {
         $underscore = new Underscore();
@@ -199,5 +211,63 @@ class String
         }
 
         throw new UnknownFunctionException(sprintf('String function %s does not exist', $method));
+    }
+
+    /**
+     * Whether a offset exists.
+     *
+     * @link http://php.net/manual/en/arrayaccess.offsetexists.php
+     *
+     * @param mixed $offset An offset to check for.
+     *
+     * @return boolean true on success or false on failure.
+     *                 The return value will be casted to boolean if non-boolean was returned.
+     */
+    public function offsetExists($offset)
+    {
+        return ! is_null($this->offsetGet($offset));
+    }
+
+    /**
+     * Offset to retrieve.
+     *
+     * @link http://php.net/manual/en/arrayaccess.offsetget.php
+     *
+     * @param mixed $offset The offset to retrieve.
+     *
+     * @return mixed Can return all value types.
+     */
+    public function offsetGet($offset)
+    {
+        $character = substr($this->string, $offset, 1);
+
+        return new String($character ?: '');
+    }
+
+    /**
+     * Offset to set.
+     *
+     * @link http://php.net/manual/en/arrayaccess.offsetset.php
+     *
+     * @param mixed $offset The offset to assign the value to.
+     * @param mixed $value  The value to set.
+     */
+    public function offsetSet($offset, $value)
+    {
+        $this->string[$offset] = $value;
+    }
+
+    /**
+     * Offset to unset.
+     *
+     * @link http://php.net/manual/en/arrayaccess.offsetunset.php
+     *
+     * @param mixed $offset The offset to unset.
+     *
+     * @throws UnsetOffsetException
+     */
+    public function offsetUnset($offset)
+    {
+        throw new UnsetOffsetException();
     }
 }

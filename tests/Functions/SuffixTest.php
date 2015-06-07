@@ -4,15 +4,13 @@ namespace Spatie\String\Test\Functions;
 
 class SuffixTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
     public function it_can_suffix_a_string()
     {
-        $this->assertEquals('hello world',(string)string('hello')->suffix(' world'));
+        $this->assertEquals('hello world', (string) string('hello')->suffix(' world'));
     }
-
 
     /**
      * @test
@@ -21,5 +19,4 @@ class SuffixTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('Spatie\String\String', string('hello')->suffix(' world'));
     }
-
 }

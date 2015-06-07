@@ -4,13 +4,12 @@ namespace Spatie\String\Test\Functions;
 
 class PrefixTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
     public function it_can_prefix_a_string()
     {
-        $this->assertEquals('hello world',(string)string('world')->prefix('hello '));
+        $this->assertEquals('hello world', (string) string('world')->prefix('hello '));
     }
 
     /**
@@ -20,5 +19,4 @@ class PrefixTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('Spatie\String\String', string('world')->prefix('hello '));
     }
-
 }

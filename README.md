@@ -31,10 +31,20 @@ From then on you can chain methods like there's no tomorrow:
 echo string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // outputs "MIDDLE"
 ```
 
-Of course you can keep concatinate the output with the `.`-operator we all know and love.
+Of course you can keep concatenate the output with the `.`-operator we all know and love.
 
 ```php 
 echo 'stuck in the ' . string('StartMiddleEnd')->between('Start', 'End')->toLower() . ' with you';
+```
+
+You can also use offsets to manipulate a string.
+
+```php
+echo string('hello')[1]->toUpper(); // outputs "E"
+
+$string = string('gray');
+$string[2] = 'e'; //
+echo $string->toUpper(); //output "GREY"
 ```
 
 ## Provided methods

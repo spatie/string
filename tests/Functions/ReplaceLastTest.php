@@ -4,7 +4,6 @@ namespace Spatie\String\Test\Functions;
 
 class ReplaceLastTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
@@ -13,7 +12,7 @@ class ReplaceLastTest extends \PHPUnit_Framework_TestCase
         $sentence = 'A good thing is not a good thing.';
         $expected = 'A good thing is not a bad thing.';
 
-        $this->assertEquals($expected,(string)string($sentence)->replaceLast('good', 'bad'));
+        $this->assertEquals($expected, (string) string($sentence)->replaceLast('good', 'bad'));
     }
 
     /**
@@ -23,7 +22,7 @@ class ReplaceLastTest extends \PHPUnit_Framework_TestCase
     {
         $sentence = 'A good thing is not a bad thing.';
 
-        $this->assertEquals($sentence,(string)string($sentence)->replaceLast('beautiful', 'bad'));
+        $this->assertEquals($sentence, (string) string($sentence)->replaceLast('beautiful', 'bad'));
     }
 
     /**
@@ -33,7 +32,7 @@ class ReplaceLastTest extends \PHPUnit_Framework_TestCase
     {
         $sentence = 'A good thing is not a bad thing.';
 
-        $this->assertEquals($sentence,(string)string($sentence)->replaceLast('', 'bad'));
+        $this->assertEquals($sentence, (string) string($sentence)->replaceLast('', 'bad'));
     }
 
     /**
@@ -43,5 +42,4 @@ class ReplaceLastTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('Spatie\String\String', string('test')->replaceLast('search', 'replace'));
     }
-
 }

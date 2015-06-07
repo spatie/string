@@ -4,13 +4,12 @@ namespace Spatie\String\Test\Functions;
 
 class ToLowerTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
     public function it_can_convert_a_string_to_lowercase()
     {
-        $this->assertEquals('lowercase',(string)string('LOWERCASE')->toLower());
+        $this->assertEquals('lowercase', (string) string('LOWERCASE')->toLower());
     }
 
     /**
@@ -20,5 +19,4 @@ class ToLowerTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('Spatie\String\String', string('test')->toLower());
     }
-
 }

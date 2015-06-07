@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.5.0 - 2015-06-07
+
+### Added
+-  allow string manipulation via array offset
+
 ## 1.4.0 - 2015-06-07
 
 ### Added
