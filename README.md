@@ -161,7 +161,8 @@ string('hello')->suffix(' world'); // hello world
 This is identical to the `suffix`-function.
 
 ## Integration with underscore.php
-In addition to the methods described above, you can also use all string methods provided
+In addition to the methods described above, you can also 
+use [all string methods](https://github.com/Anahkiasen/underscore-php/blob/master/src/Methods/StringsMethods.php) provided
 by [Maxime Fabre's underscore package](https://github.com/Anahkiasen/underscore-php).
 
 For example:
