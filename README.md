@@ -44,7 +44,7 @@ echo string('hello')[1]->toUpper(); // outputs "E"
 
 $string = string('gray');
 $string[2] = 'e'; //
-echo $string->toUpper(); //output "GREY"
+echo $string->toUpper(); //outputs "GREY"
 ```
 
 ## Provided methods
