@@ -2,6 +2,9 @@
 
 namespace Spatie\String;
 
+use Spatie\String\Exceptions\UnknownFunctionException;
+use Spatie\String\Intergration\Underscore;
+
 class String
 {
     protected $string;
@@ -185,5 +188,16 @@ class String
     public function concat($string)
     {
         return $this->suffix($string);
+    }
+
+    public function __call($method, $args)
+    {
+        $underscore = new Underscore();
+
+        if ($underscore->isSupportedMethod($method)) {
+            return $underscore->call($this, $method, $args);
+        }
+
+        throw new UnknownFunctionException(sprintf('String function %s does not exist', $method));
     }
 }

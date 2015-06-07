@@ -25,7 +25,7 @@ First you must wrap a native string in a String-object. This can be done with th
 string('myFirstString');
 ```
 
-From then on you can chain methods like there's no tomorrow
+From then on you can chain methods like there's no tomorrow:
 
 ```php
 echo string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // outputs "MIDDLE"
@@ -159,6 +159,25 @@ string('hello')->suffix(' world'); // hello world
 
 ### concat
 This is identical to the `suffix`-function.
+
+## Integration with underscore.php
+In addition to the methods described above, you can also use all string methods provided
+by [Maxime Fabre's underscore package](https://github.com/Anahkiasen/underscore-php).
+
+For example:
+```php
+string('i am a slug')->slugify()` // returns 'i-am-a-slug'
+``` 
+
+Of course, you can chain underscore's methods with our own.
+```php
+string('i am a slug')->slugify()->between('i', 'a-slug`) // returns '-am-'
+``` 
+
+Be aware that some underscore methods do not return a string value. Such methods are not chainable.
+```php
+string('freek@spatie.be')->isEmail() // returns true;
+``` 
 
 ## Change log
 

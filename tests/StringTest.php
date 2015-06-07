@@ -49,4 +49,14 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('MIDDLE', (string)$result);
     }
 
+    /**
+     * @test
+     */
+    public function it_raises_an_exception_when_an_undefined_method_is_called()
+    {
+        $this->setExpectedException('Spatie\String\Exceptions\UnknownFunctionException');
+
+        string('test')->unknownFunction('hi');
+    }
+
 }
