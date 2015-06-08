@@ -55,7 +55,7 @@ echo $string->toUpper(); //outputs "GREY"
  *
  * @param $start
  * @param $end
- * @return String
+ * @return \Spatie\String\String
  */
 public function between($start, $end)
 ```
@@ -70,7 +70,7 @@ string('StartMiddleEnd')->between('Start', 'End')->toUpper(); // MIDDLE
 /**
  * Convert the string to uppercase.
  *
- * @return String
+ * @return \Spatie\String\String
  */
 public function toUpper()
 ```
@@ -85,7 +85,7 @@ string('string')->toUpper(); // STRING
 /**
  * Convert the string to lowercase.
  *
- * @return String
+ * @return \Spatie\String\String
  */
 public function toLower()
 ```
@@ -106,7 +106,7 @@ string('STRING')->toLower(); // string
  *
  * @param int $length
  * @param string $moreTextIndicator
- * @return String
+ * @return \Spatie\String\String
  */
 public function tease($length = 200, $moreTextIndicator = '...')
 ```
@@ -124,7 +124,7 @@ string($longText)->tease(10); // Now that...
  *
  * @param $search
  * @param $replace
- * @return String
+ * @return \Spatie\String\String
  */
 public function replaceLast($search, $replace)
 ```
@@ -141,7 +141,7 @@ string($sentence)->replaceLast('good', 'bad'); // A good thing is not a bad thin
  * Prefix a string.
  *
  * @param $string
- * @return String
+ * @return \Spatie\String\String
  */
 public function prefix($string)
 ```
@@ -157,7 +157,7 @@ string('world')->prefix('hello '); //hello world
  * Suffix a string.
  *
  * @param $string
- * @return String
+ * @return \Spatie\String\String
  */
 public function suffix($string)
 ```
@@ -169,6 +169,22 @@ string('hello')->suffix(' world'); // hello world
 
 ### concat
 This is identical to the `suffix`-function.
+
+### possessive
+```php
+/**
+ * Get the possessive version of a string.
+ *
+ * @return \Spatie\String\String
+ */
+public function possessive()
+```
+
+Example:
+```php
+string('Bob')->possessive(); // Bob's
+string('Charles')->possessive(); // Charles'
+```
 
 ## Integration with underscore.php
 In addition to the methods described above, you can also 

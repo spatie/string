@@ -39,26 +39,26 @@ class String implements ArrayAccess
         }
 
         if ($start != '' && strpos($this->string, $start) === false) {
-            return new String();
+            return new self();
         }
 
         if ($end != '' && strpos($this->string, $end) === false) {
-            return new String();
+            return new self();
         }
 
         if ($start == '') {
-            return new String(substr($this->string, 0, strpos($this->string, $end)));
+            return new self(substr($this->string, 0, strpos($this->string, $end)));
         }
 
         if ($end == '') {
-            return new String(substr($this->string, strpos($this->string, $start) + strlen($start)));
+            return new self(substr($this->string, strpos($this->string, $start) + strlen($start)));
         }
 
         $stringWithoutStart = explode($start, $this->string)[1];
 
         $middle = explode($end, $stringWithoutStart)[0];
 
-        return new String($middle);
+        return new self($middle);
     }
 
     /**
@@ -68,7 +68,7 @@ class String implements ArrayAccess
      */
     public function toUpper()
     {
-        return new String(strtoupper($this->string));
+        return new self(strtoupper($this->string));
     }
 
     /**
@@ -78,7 +78,7 @@ class String implements ArrayAccess
      */
     public function toLower()
     {
-        return new String(strtolower($this->string));
+        return new self(strtolower($this->string));
     }
 
     /**
@@ -98,17 +98,17 @@ class String implements ArrayAccess
         $sanitizedString = $this->sanitizeForTeaste($this->string);
 
         if (strlen($sanitizedString) == 0) {
-            return new String();
+            return new self();
         }
 
         if (strlen($sanitizedString) <= $length) {
-            return new String($sanitizedString);
+            return new self($sanitizedString);
         }
 
         $ww = wordwrap($sanitizedString, $length, "\n");
         $shortenedString = substr($ww, 0, strpos($ww, "\n")).$moreTextIndicator;
 
-        return new String($shortenedString);
+        return new self($shortenedString);
     }
 
     /**
@@ -153,7 +153,7 @@ class String implements ArrayAccess
 
         $resultString = substr_replace($this->string, $replace, $position, strlen($search));
 
-        return new String($resultString);
+        return new self($resultString);
     }
 
     /**
@@ -165,7 +165,7 @@ class String implements ArrayAccess
      */
     public function prefix($string)
     {
-        return new String($string.$this->string);
+        return new self($string.$this->string);
     }
 
     /**
@@ -177,7 +177,7 @@ class String implements ArrayAccess
      */
     public function suffix($string)
     {
-        return new String($this->string.$string);
+        return new self($this->string.$string);
     }
 
     /**
@@ -190,6 +190,16 @@ class String implements ArrayAccess
     public function concat($string)
     {
         return $this->suffix($string);
+    }
+
+    /**
+     * Get the possessive version of a string.
+     *
+     * @return \Spatie\String\String
+     */
+    public function possessive()
+    {
+        return new self($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
     }
 
     /**
@@ -220,12 +230,12 @@ class String implements ArrayAccess
      *
      * @param mixed $offset An offset to check for.
      *
-     * @return boolean true on success or false on failure.
-     *                 The return value will be casted to boolean if non-boolean was returned.
+     * @return bool true on success or false on failure.
+     *              The return value will be casted to boolean if non-boolean was returned.
      */
     public function offsetExists($offset)
     {
-        return ! is_null($this->offsetGet($offset));
+        return !is_null($this->offsetGet($offset));
     }
 
     /**
@@ -241,7 +251,7 @@ class String implements ArrayAccess
     {
         $character = substr($this->string, $offset, 1);
 
-        return new String($character ?: '');
+        return new self($character ?: '');
     }
 
     /**

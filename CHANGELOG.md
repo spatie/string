@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.6.0 - 2015-06-08
+
+### Added
+-  possessive method
+
 ## 1.5.0 - 2015-06-07
 
 ### Added
@@ -26,7 +31,6 @@ All Notable changes to `spatie/string` will be documented in this file
 
 ### Added
 - tease method
-
 
 ## 1.0.0 - 2015-06-05
 
