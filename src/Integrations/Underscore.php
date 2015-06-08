@@ -47,7 +47,7 @@ class Underscore
      * @param string                $method
      * @param array                 $args
      *
-     * @return mixed|String
+     * @return mixed|\Spatie\String\String
      */
     public function call($string, $method, $args)
     {

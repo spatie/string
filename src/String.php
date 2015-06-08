@@ -30,7 +30,7 @@ class String implements ArrayAccess
      * @param $start
      * @param $end
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function between($start, $end)
     {
@@ -64,7 +64,7 @@ class String implements ArrayAccess
     /**
      * Convert the string to uppercase.
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function toUpper()
     {
@@ -74,7 +74,7 @@ class String implements ArrayAccess
     /**
      * Convert the string to lowercase.
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function toLower()
     {
@@ -91,7 +91,7 @@ class String implements ArrayAccess
      * @param int    $length
      * @param string $moreTextIndicator
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function tease($length = 200, $moreTextIndicator = '...')
     {
@@ -137,7 +137,7 @@ class String implements ArrayAccess
      * @param $search
      * @param $replace
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function replaceLast($search, $replace)
     {
@@ -161,7 +161,7 @@ class String implements ArrayAccess
      *
      * @param $string
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function prefix($string)
     {
@@ -173,7 +173,7 @@ class String implements ArrayAccess
      *
      * @param $string
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function suffix($string)
     {
@@ -185,7 +185,7 @@ class String implements ArrayAccess
      *
      * @param $string
      *
-     * @return String
+     * @return \Spatie\String\String
      */
     public function concat($string)
     {
@@ -198,7 +198,7 @@ class String implements ArrayAccess
      * @param $method
      * @param $args
      *
-     * @return mixed|String
+     * @return mixed|\Spatie\String\String
      *
      * @throws UnknownFunctionException
      */
