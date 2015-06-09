@@ -288,6 +288,18 @@ class String implements ArrayAccess
     }
 
     /**
+     * Strip whitespace (or other characters) from the beginning and end of a string
+     * 
+     * @param string $characterMask
+     * 
+     * @return \Spatie\String\String
+     */
+    public function trim($characterMask = " \t\n\r\0\x0B")
+    {
+        return new static(trim($this->string, $characterMask));
+    }
+
+    /**
      * Unknown methods calls will be handled by various integrations.
      *
      * @param $method
