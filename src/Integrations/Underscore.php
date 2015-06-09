@@ -12,7 +12,7 @@ class Underscore
             'accord'        => [false, true],
             'random'        => [false, true],
             'quickRandom'   => [false, true],
-            'randomStrings' => [false, false],
+            'randomStrings' => [false, true],
             'endsWith'      => [true, false],
             'isIp'          => [true, false],
             'isEmail'       => [true, false],

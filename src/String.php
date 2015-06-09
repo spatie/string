@@ -7,6 +7,43 @@ use Spatie\String\Exceptions\UnknownFunctionException;
 use Spatie\String\Exceptions\UnsetOffsetException;
 use Spatie\String\Integrations\Underscore;
 
+/**
+ * Magic methods provided by underscore are documented here.
+ * 
+ * @see \Underscore\Methods\StringsMethods
+ * 
+ * @method \Spatie\String\String accord($count, $many, $one, $zero = null)
+ * @method \Spatie\String\String random($length = 16)
+ * @method \Spatie\String\String quickRandom($length = 16)
+ * @method randomStrings($words, $length = 10)
+ * @method bool endsWith($needles)
+ * @method bool isIp()
+ * @method bool isEmail()
+ * @method bool isUrl()
+ * @method bool startsWith()
+ * @method bool find($needle, $caseSensitive = false, $absolute = false)
+ * @method array slice($slice)
+ * @method \Spatie\String\String sliceFrom($slice)
+ * @method \Spatie\String\String sliceTo($slice)
+ * @method \Spatie\String\String baseClass()
+ * @method \Spatie\String\String prepend($with)
+ * @method \Spatie\String\String append($with)
+ * @method \Spatie\String\String limit($limit = 100, $end = '...')
+ * @method \Spatie\String\String remove($remove)
+ * @method \Spatie\String\String replace($replace, $with)
+ * @method \Spatie\String\String toggle($first, $second, $loose = false)
+ * @method \Spatie\String\String slugify($separator = '-')
+ * @method array explode($with, $limit = null)
+ * @method \Spatie\String\String lower()
+ * @method \Spatie\String\String plural()
+ * @method \Spatie\String\String singular()
+ * @method \Spatie\String\String upper()
+ * @method \Spatie\String\String title()
+ * @method \Spatie\String\String words($words = 100, $end = '...')
+ * @method \Spatie\String\String toPascalCase()
+ * @method \Spatie\String\String toSnakeCase()
+ * @method \Spatie\String\String toCamelCase()
+ */
 class String implements ArrayAccess
 {
     protected $string;
