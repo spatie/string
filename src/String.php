@@ -95,7 +95,7 @@ class String implements ArrayAccess
      */
     public function tease($length = 200, $moreTextIndicator = '...')
     {
-        $sanitizedString = $this->sanitizeForTeaste($this->string);
+        $sanitizedString = $this->sanitizeForTease($this->string);
 
         if (strlen($sanitizedString) == 0) {
             return new self();
@@ -118,7 +118,7 @@ class String implements ArrayAccess
      *
      * @return string
      */
-    private function sanitizeForTeaste($string)
+    private function sanitizeForTease($string)
     {
         $string = trim($string);
 
