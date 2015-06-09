@@ -7,7 +7,7 @@ use Spatie\String\String;
  *
  * @param string $string
  *
- * @return String
+ * @return \Spatie\String\String
  */
 function string($string = '')
 {

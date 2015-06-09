@@ -186,6 +186,51 @@ string('Bob')->possessive(); // Bob's
 string('Charles')->possessive(); // Charles'
 ```
 
+### segment
+```php
+/**
+ * Get a segment from a string based on a delimiter.
+ * Returns an empty string when the offset doesn't exist.
+ * Use a negative index to start counting from the last element.
+ * 
+ * @param string $delimiter
+ * @param int $index
+ * 
+ * @return \Spatie\String\String
+ */
+public function segment($delimiter, $index)
+```
+
+Related methods:
+```php
+/**
+ * Get the first segment from a string based on a delimiter.
+ * 
+ * @param string $delimiter
+ * 
+ * @return \Spatie\String\String
+ */
+public function firstSegment($delimiter)
+
+/**
+ * Get the last segment from a string based on a delimiter.
+ * 
+ * @param string $delimiter
+ * 
+ * @return \Spatie\String\String
+ */
+public function lastSegment($delimiter)
+```
+
+Example:
+```php
+string('foo/bar/baz')->segment('/', 0); // foo
+string('foo/bar/baz')->segment('/', 1); // bar
+string('foo/bar/baz')->segment('/', 0, true); // baz
+string('foo/bar/baz')->firstSegment('/'); // foo
+string('foo/bar/baz')->lastSegment('/'); // baz
+```
+
 ## Integration with underscore.php
 In addition to the methods described above, you can also 
 use [all string methods](https://github.com/Anahkiasen/underscore-php/blob/master/src/Methods/StringsMethods.php) provided

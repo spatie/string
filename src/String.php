@@ -7,6 +7,43 @@ use Spatie\String\Exceptions\UnknownFunctionException;
 use Spatie\String\Exceptions\UnsetOffsetException;
 use Spatie\String\Integrations\Underscore;
 
+/**
+ * Magic methods provided by underscore are documented here.
+ * 
+ * @see \Underscore\Methods\StringsMethods
+ * 
+ * @method \Spatie\String\String accord($count, $many, $one, $zero = null)
+ * @method \Spatie\String\String random($length = 16)
+ * @method \Spatie\String\String quickRandom($length = 16)
+ * @method randomStrings($words, $length = 10)
+ * @method bool endsWith($needles)
+ * @method bool isIp()
+ * @method bool isEmail()
+ * @method bool isUrl()
+ * @method bool startsWith()
+ * @method bool find($needle, $caseSensitive = false, $absolute = false)
+ * @method array slice($slice)
+ * @method \Spatie\String\String sliceFrom($slice)
+ * @method \Spatie\String\String sliceTo($slice)
+ * @method \Spatie\String\String baseClass()
+ * @method \Spatie\String\String prepend($with)
+ * @method \Spatie\String\String append($with)
+ * @method \Spatie\String\String limit($limit = 100, $end = '...')
+ * @method \Spatie\String\String remove($remove)
+ * @method \Spatie\String\String replace($replace, $with)
+ * @method \Spatie\String\String toggle($first, $second, $loose = false)
+ * @method \Spatie\String\String slugify($separator = '-')
+ * @method array explode($with, $limit = null)
+ * @method \Spatie\String\String lower()
+ * @method \Spatie\String\String plural()
+ * @method \Spatie\String\String singular()
+ * @method \Spatie\String\String upper()
+ * @method \Spatie\String\String title()
+ * @method \Spatie\String\String words($words = 100, $end = '...')
+ * @method \Spatie\String\String toPascalCase()
+ * @method \Spatie\String\String toSnakeCase()
+ * @method \Spatie\String\String toCamelCase()
+ */
 class String implements ArrayAccess
 {
     protected $string;
@@ -95,7 +132,7 @@ class String implements ArrayAccess
      */
     public function tease($length = 200, $moreTextIndicator = '...')
     {
-        $sanitizedString = $this->sanitizeForTeaste($this->string);
+        $sanitizedString = $this->sanitizeForTease($this->string);
 
         if (strlen($sanitizedString) == 0) {
             return new self();
@@ -118,7 +155,7 @@ class String implements ArrayAccess
      *
      * @return string
      */
-    private function sanitizeForTeaste($string)
+    private function sanitizeForTease($string)
     {
         $string = trim($string);
 
@@ -200,6 +237,66 @@ class String implements ArrayAccess
     public function possessive()
     {
         return new self($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
+    }
+
+    /**
+     * Get a segment from a string based on a delimiter.
+     * Returns an empty string when the offset doesn't exist.
+     * Use a negative index to start counting from the last element.
+     * 
+     * @param string $delimiter
+     * @param int $index
+     * 
+     * @return \Spatie\String\String
+     */
+    public function segment($delimiter, $index)
+    {
+        $segments = explode($delimiter, $this->string);
+
+        if ($index < 0) {
+            $segments = array_reverse($segments);
+            $index    = abs($index) - 1;
+        }
+
+        $segment = isset($segments[$index]) ? $segments[$index] : '';
+
+        return new static($segment);
+    }
+
+    /**
+     * Get the first segment from a string based on a delimiter.
+     * 
+     * @param string $delimiter
+     * 
+     * @return \Spatie\String\String
+     */
+    public function firstSegment($delimiter)
+    {
+        return (new static($this->string))->segment($delimiter, 0);
+    }
+
+    /**
+     * Get the last segment from a string based on a delimiter.
+     * 
+     * @param string $delimiter
+     * 
+     * @return \Spatie\String\String
+     */
+    public function lastSegment($delimiter)
+    {
+        return (new static($this->string))->segment($delimiter, -1);
+    }
+
+    /**
+     * Strip whitespace (or other characters) from the beginning and end of a string
+     * 
+     * @param string $characterMask
+     * 
+     * @return \Spatie\String\String
+     */
+    public function trim($characterMask = " \t\n\r\0\x0B")
+    {
+        return new static(trim($this->string, $characterMask));
     }
 
     /**
