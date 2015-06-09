@@ -203,6 +203,53 @@ class String implements ArrayAccess
     }
 
     /**
+     * Get a segment from a string based on a delimiter.
+     * 
+     * @param string $delimiter
+     * @param int $index
+     * @param bool $reverse
+     * 
+     * @return \Spatie\String\String
+     */
+    public function segment($delimiter, $index, $reverse = false)
+    {
+        $segments = explode($delimiter, $this->string);
+
+        if ($reverse) {
+            $segments = array_reverse($segments);
+        }
+
+        $segment = isset($segments[$index]) ? $segments[$index] : '';
+
+        return new self($segment);
+    }
+
+    /**
+     * Get the first segment from a string based on a delimiter.
+     * 
+     * @param string $delimiter
+     * 
+     * @return \Spatie\String\String
+     */
+    public function firstSegment($delimiter)
+    {
+        return (new self($this->string))->segment($delimiter, 0);
+    }
+
+    /**
+     * Get the last segment from a string based on a delimiter.
+     * Returns an empty string when the offset doesn't exist.
+     * 
+     * @param string $delimiter
+     * 
+     * @return \Spatie\String\String
+     */
+    public function lastSegment($delimiter)
+    {
+        return (new self($this->string))->segment($delimiter, 0, true);
+    }
+
+    /**
      * Unknown methods calls will be handled by various integrations.
      *
      * @param $method
