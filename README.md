@@ -191,14 +191,14 @@ string('Charles')->possessive(); // Charles'
 /**
  * Get a segment from a string based on a delimiter.
  * Returns an empty string when the offset doesn't exist.
+ * Use a negative index to start counting from the last element.
  * 
  * @param string $delimiter
  * @param int $index
- * @param bool $reverse
  * 
  * @return \Spatie\String\String
  */
-public function segment($delimiter, $index, $reverse = false)
+public function segment($delimiter, $index)
 ```
 
 Related methods:

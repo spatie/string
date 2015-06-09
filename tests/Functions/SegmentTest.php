@@ -28,10 +28,10 @@ class SegmentTest extends \PHPUnit_Framework_TestCase
      */
     public function it_retrieves_a_segment_in_reverse()
     {
-        $this->assertEquals('baz', (string) string('foo/bar/baz')->segment('/', 0, true));
-        $this->assertEquals('bar', (string) string('foo/bar/baz')->segment('/', 1, true));
-        $this->assertEquals('foo', (string) string('foo/bar/baz')->segment('/', 2, true));
-        $this->assertEquals('',    (string) string('foo/bar/baz')->segment('/', 3, true));
+        $this->assertEquals('baz', (string) string('foo/bar/baz')->segment('/', -1));
+        $this->assertEquals('bar', (string) string('foo/bar/baz')->segment('/', -2));
+        $this->assertEquals('foo', (string) string('foo/bar/baz')->segment('/', -3));
+        $this->assertEquals('',    (string) string('foo/bar/baz')->segment('/', -4));
     }
 
     /**

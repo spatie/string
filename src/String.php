@@ -204,24 +204,26 @@ class String implements ArrayAccess
 
     /**
      * Get a segment from a string based on a delimiter.
+     * Returns an empty string when the offset doesn't exist.
+     * Use a negative index to start counting from the last element.
      * 
      * @param string $delimiter
      * @param int $index
-     * @param bool $reverse
      * 
      * @return \Spatie\String\String
      */
-    public function segment($delimiter, $index, $reverse = false)
+    public function segment($delimiter, $index)
     {
         $segments = explode($delimiter, $this->string);
 
-        if ($reverse) {
+        if ($index < 0) {
             $segments = array_reverse($segments);
+            $index    = abs($index) - 1;
         }
 
         $segment = isset($segments[$index]) ? $segments[$index] : '';
 
-        return new self($segment);
+        return new static($segment);
     }
 
     /**
@@ -233,12 +235,11 @@ class String implements ArrayAccess
      */
     public function firstSegment($delimiter)
     {
-        return (new self($this->string))->segment($delimiter, 0);
+        return (new static($this->string))->segment($delimiter, 0);
     }
 
     /**
      * Get the last segment from a string based on a delimiter.
-     * Returns an empty string when the offset doesn't exist.
      * 
      * @param string $delimiter
      * 
@@ -246,7 +247,7 @@ class String implements ArrayAccess
      */
     public function lastSegment($delimiter)
     {
-        return (new self($this->string))->segment($delimiter, 0, true);
+        return (new static($this->string))->segment($delimiter, -1);
     }
 
     /**
