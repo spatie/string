@@ -49,4 +49,12 @@ class SegmentTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals('baz', (string) string('foo/bar/baz')->lastSegment('/'));
     }
+
+    /**
+     * @test
+     */
+    public function it_is_chainable()
+    {
+        $this->assertInstanceOf('Spatie\String\String', string('foo/bar/baz')->segment('/', 0));
+    }
 }
