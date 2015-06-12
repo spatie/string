@@ -231,6 +231,24 @@ string('foo/bar/baz')->firstSegment('/'); // foo
 string('foo/bar/baz')->lastSegment('/'); // baz
 ```
 
+## pop
+```php
+/**
+ * Pop (remove) the last segment of a string based on a delimiter
+ * 
+ * @param string $delimiter
+ * 
+ * @return \Spatie\String\String
+ */
+public function pop($delimiter)
+```
+
+Example:
+```php
+string('foo/bar/baz')->pop('/'); // foo/bar
+string('foo/bar/baz')->pop('/')->pop('/'); // foo
+```
+
 ## Integration with underscore.php
 In addition to the methods described above, you can also 
 use [all string methods](https://github.com/Anahkiasen/underscore-php/blob/master/src/Methods/StringsMethods.php) provided

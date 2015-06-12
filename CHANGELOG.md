@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.8.0 - 2015-06-12
+
+### Added
+- pop method
+ 
 ## 1.7.0 - 2015-06-09
 
 ### Added
