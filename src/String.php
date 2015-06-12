@@ -76,26 +76,26 @@ class String implements ArrayAccess
         }
 
         if ($start != '' && strpos($this->string, $start) === false) {
-            return new self();
+            return new static();
         }
 
         if ($end != '' && strpos($this->string, $end) === false) {
-            return new self();
+            return new static();
         }
 
         if ($start == '') {
-            return new self(substr($this->string, 0, strpos($this->string, $end)));
+            return new static(substr($this->string, 0, strpos($this->string, $end)));
         }
 
         if ($end == '') {
-            return new self(substr($this->string, strpos($this->string, $start) + strlen($start)));
+            return new static(substr($this->string, strpos($this->string, $start) + strlen($start)));
         }
 
         $stringWithoutStart = explode($start, $this->string)[1];
 
         $middle = explode($end, $stringWithoutStart)[0];
 
-        return new self($middle);
+        return new static($middle);
     }
 
     /**
@@ -105,7 +105,7 @@ class String implements ArrayAccess
      */
     public function toUpper()
     {
-        return new self(strtoupper($this->string));
+        return new static(strtoupper($this->string));
     }
 
     /**
@@ -115,7 +115,7 @@ class String implements ArrayAccess
      */
     public function toLower()
     {
-        return new self(strtolower($this->string));
+        return new static(strtolower($this->string));
     }
 
     /**
@@ -135,17 +135,17 @@ class String implements ArrayAccess
         $sanitizedString = $this->sanitizeForTease($this->string);
 
         if (strlen($sanitizedString) == 0) {
-            return new self();
+            return new static();
         }
 
         if (strlen($sanitizedString) <= $length) {
-            return new self($sanitizedString);
+            return new static($sanitizedString);
         }
 
         $ww = wordwrap($sanitizedString, $length, "\n");
         $shortenedString = substr($ww, 0, strpos($ww, "\n")).$moreTextIndicator;
 
-        return new self($shortenedString);
+        return new static($shortenedString);
     }
 
     /**
@@ -190,7 +190,7 @@ class String implements ArrayAccess
 
         $resultString = substr_replace($this->string, $replace, $position, strlen($search));
 
-        return new self($resultString);
+        return new static($resultString);
     }
 
     /**
@@ -202,7 +202,7 @@ class String implements ArrayAccess
      */
     public function prefix($string)
     {
-        return new self($string.$this->string);
+        return new static($string.$this->string);
     }
 
     /**
@@ -214,7 +214,7 @@ class String implements ArrayAccess
      */
     public function suffix($string)
     {
-        return new self($this->string.$string);
+        return new static($this->string.$string);
     }
 
     /**
@@ -236,7 +236,7 @@ class String implements ArrayAccess
      */
     public function possessive()
     {
-        return new self($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
+        return new static($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
     }
 
     /**
@@ -360,7 +360,7 @@ class String implements ArrayAccess
     {
         $character = substr($this->string, $offset, 1);
 
-        return new self($character ?: '');
+        return new static($character ?: '');
     }
 
     /**
