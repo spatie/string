@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.8.1 - 2015-06-12
+
+### Bugfix
+- Fixed underscore methods that use the string as a parameter
+
 ## 1.8.0 - 2015-06-12
 
 ### Added
