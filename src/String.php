@@ -288,7 +288,7 @@ class String implements ArrayAccess
     }
 
     /**
-     * Pop (remove) the last segment on a string based on a delimiter
+     * Pop (remove) the last segment of a string based on a delimiter
      * 
      * @param string $delimiter
      * 
