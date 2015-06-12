@@ -288,6 +288,18 @@ class String implements ArrayAccess
     }
 
     /**
+     * Pop (remove) the last segment on a string based on a delimiter
+     * 
+     * @param string $delimiter
+     * 
+     * @return \Spatie\String\String
+     */
+    public function pop($delimiter)
+    {
+        return (new static($this->string))->replaceLast($delimiter.$this->lastSegment($delimiter), '');
+    }
+
+    /**
      * Strip whitespace (or other characters) from the beginning and end of a string
      * 
      * @param string $characterMask
