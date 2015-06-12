@@ -52,7 +52,7 @@ class Underscore
     public function call($string, $method, $args)
     {
         if ($this->methodUsesStringAsFirstArgument($method)) {
-            $args = [(string) $string] + $args;
+            array_unshift($args, (string) $string);
         }
 
         $underscoreResult = call_user_func_array(['Underscore\Types\Strings', $method], $args);

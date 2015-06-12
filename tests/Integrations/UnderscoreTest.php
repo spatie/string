@@ -15,6 +15,14 @@ class UnderscoreTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_can_use_underscore_methods_that_have_a_string_as_input()
+    {
+        $this->assertEquals('tobeornottobe', (string) string('tobe')->append('ornottobe'));
+    }
+
+    /**
+     * @test
+     */
     public function it_can_use_underscore_methods_that_do_not_need_a_string_as_input()
     {
         $this->assertEquals(20, strlen((string) string()->random(20)));
