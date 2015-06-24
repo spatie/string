@@ -98,6 +98,16 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_can_determine_if_an_offset_is_set()
+    {
+        $string = string('s');
+        $this->assertTrue(isset($string[0]));
+        $this->assertFalse(isset($string[1]));
+    }
+
+    /**
+     * @test
+     */
     public function it_raises_an_exception_when_trying_to_unset_via_an_offset()
     {
         $string = string('string');

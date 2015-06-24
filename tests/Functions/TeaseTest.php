@@ -77,6 +77,14 @@ class TeaseTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_return_an_empty_string_if_after_trimming_everything_is_cleaned_up()
+    {
+        $this->assertEquals('', (string) string('    ')->tease(200));
+    }
+
+    /**
+     * @test
+     */
     public function it_is_chainable()
     {
         $this->assertInstanceOf('Spatie\String\String', string('test')->tease());

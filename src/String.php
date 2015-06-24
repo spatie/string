@@ -9,9 +9,9 @@ use Spatie\String\Integrations\Underscore;
 
 /**
  * Magic methods provided by underscore are documented here.
- * 
+ *
  * @see \Underscore\Methods\StringsMethods
- * 
+ *
  * @method \Spatie\String\String accord($count, $many, $one, $zero = null)
  * @method \Spatie\String\String random($length = 16)
  * @method \Spatie\String\String quickRandom($length = 16)
@@ -243,10 +243,10 @@ class String implements ArrayAccess
      * Get a segment from a string based on a delimiter.
      * Returns an empty string when the offset doesn't exist.
      * Use a negative index to start counting from the last element.
-     * 
+     *
      * @param string $delimiter
-     * @param int $index
-     * 
+     * @param int    $index
+     *
      * @return \Spatie\String\String
      */
     public function segment($delimiter, $index)
@@ -255,7 +255,7 @@ class String implements ArrayAccess
 
         if ($index < 0) {
             $segments = array_reverse($segments);
-            $index    = abs($index) - 1;
+            $index = abs($index) - 1;
         }
 
         $segment = isset($segments[$index]) ? $segments[$index] : '';
@@ -265,9 +265,9 @@ class String implements ArrayAccess
 
     /**
      * Get the first segment from a string based on a delimiter.
-     * 
+     *
      * @param string $delimiter
-     * 
+     *
      * @return \Spatie\String\String
      */
     public function firstSegment($delimiter)
@@ -277,9 +277,9 @@ class String implements ArrayAccess
 
     /**
      * Get the last segment from a string based on a delimiter.
-     * 
+     *
      * @param string $delimiter
-     * 
+     *
      * @return \Spatie\String\String
      */
     public function lastSegment($delimiter)
@@ -288,10 +288,10 @@ class String implements ArrayAccess
     }
 
     /**
-     * Pop (remove) the last segment of a string based on a delimiter
-     * 
+     * Pop (remove) the last segment of a string based on a delimiter.
+     *
      * @param string $delimiter
-     * 
+     *
      * @return \Spatie\String\String
      */
     public function pop($delimiter)
@@ -300,10 +300,10 @@ class String implements ArrayAccess
     }
 
     /**
-     * Strip whitespace (or other characters) from the beginning and end of a string
-     * 
+     * Strip whitespace (or other characters) from the beginning and end of a string.
+     *
      * @param string $characterMask
-     * 
+     *
      * @return \Spatie\String\String
      */
     public function trim($characterMask = " \t\n\r\0\x0B")
@@ -344,7 +344,7 @@ class String implements ArrayAccess
      */
     public function offsetExists($offset)
     {
-        return !is_null($this->offsetGet($offset));
+        return strlen($this->string) >= ($offset + 1);
     }
 
     /**
