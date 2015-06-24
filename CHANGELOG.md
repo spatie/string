@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.8.2 - 2015-06-24
+
+### Bugfix
+- Fixed ArrayAccess offset test
+
 ## 1.8.1 - 2015-06-12
 
 ### Bugfix
