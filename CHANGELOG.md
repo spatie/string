@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.9.0 - 2015-06-26
+
+### Added
+- Add replace function
+
 ## 1.8.2 - 2015-06-24
 
 ### Bugfix

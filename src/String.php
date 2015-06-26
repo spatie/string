@@ -109,6 +109,18 @@ class String implements ArrayAccess
     }
 
     /**
+     * Replace a string.
+     *
+     * @param $search
+     * @param $replace
+     * @return static
+     */
+    public function replace($search, $replace)
+    {
+        return new static(str_replace($search, $replace, $this->string));
+    }
+
+    /**
      * Convert the string to lowercase.
      *
      * @return \Spatie\String\String
