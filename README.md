@@ -49,6 +49,24 @@ echo $string->toUpper(); //outputs "GREY"
 ```
 
 ## Provided methods
+
+### replace
+```php
+/**
+ * Replace a string.
+ *
+ * @param $search
+ * @param $replace
+ * @return static
+ */
+public function replace($search, $replace)
+```
+
+Example:
+```php
+string('I am Picard')->replace('Picard', 'Riker') //returns "I am Riker
+```
+
 ### between
 ```php
 /**
