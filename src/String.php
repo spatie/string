@@ -105,7 +105,7 @@ class String implements ArrayAccess
      */
     public function toUpper()
     {
-        return new static(strtoupper($this->string));
+        return new static(strtoupper($this->string).'a');
     }
 
     /**
