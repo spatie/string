@@ -15,7 +15,7 @@ class TeaseTest extends \PHPUnit_Framework_TestCase
      */
     public function it_can_shorten_a_text_in_a_beautiful_way()
     {
-        $this->assertEquals('Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book...', (string) string($this->longText)->tease());
+        $this->assertEquals('Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book…', (string) string($this->longText)->tease());
     }
 
     /**
@@ -23,7 +23,7 @@ class TeaseTest extends \PHPUnit_Framework_TestCase
      */
     public function it_can_shorten_a_text_in_a_beautiful_way_to_a_specified_length()
     {
-        $this->assertEquals('Now that...', (string) string($this->longText)->tease(10));
+        $this->assertEquals('Now that…', (string) string($this->longText)->tease(10));
     }
 
     /**

@@ -2,6 +2,12 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.9.1 - 2015-06-26
+
+### Changed
+- Removed replace function and test, function already provided by Underscore
+- Changed $moreTextIndicator for tease() from '...' to real ellipsis character
+
 ## 1.9.0 - 2015-06-26
 
 ### Added
