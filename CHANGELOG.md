@@ -2,6 +2,11 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 1.9.1 - 2015-06-26
+
+### Changed
+- Removed replace function & test (already provided by Underscore)
+
 ## 1.9.0 - 2015-06-26
 
 ### Added
