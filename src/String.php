@@ -108,17 +108,6 @@ class String implements ArrayAccess
         return new static(strtoupper($this->string));
     }
 
-    /**
-     * Replace a string.
-     *
-     * @param $search
-     * @param $replace
-     * @return static
-     */
-    public function replace($search, $replace)
-    {
-        return new static(str_replace($search, $replace, $this->string));
-    }
 
     /**
      * Convert the string to lowercase.
@@ -142,7 +131,7 @@ class String implements ArrayAccess
      *
      * @return \Spatie\String\String
      */
-    public function tease($length = 200, $moreTextIndicator = '...')
+    public function tease($length = 200, $moreTextIndicator = '…')
     {
         $sanitizedString = $this->sanitizeForTease($this->string);
 
