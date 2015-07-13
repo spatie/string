@@ -87,6 +87,6 @@ class TeaseTest extends \PHPUnit_Framework_TestCase
      */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf('Spatie\String\String', string('test')->tease());
+        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->tease());
     }
 }

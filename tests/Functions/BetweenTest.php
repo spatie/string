@@ -73,6 +73,6 @@ class BetweenTest extends \PHPUnit_Framework_TestCase
      */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf('Spatie\String\String', string('test')->between('', ''));
+        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->between('', ''));
     }
 }

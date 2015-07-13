@@ -1,15 +1,15 @@
 <?php
 
-use Spatie\String\String;
+use Spatie\String\Str;
 
 /**
  * Poor man's string factory.
  *
  * @param string $string
  *
- * @return \Spatie\String\String
+ * @return \Spatie\String\Str
  */
 function string($string = '')
 {
-    return new String($string);
+    return new Str($string);
 }

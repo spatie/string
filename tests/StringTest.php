@@ -9,7 +9,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function the_string_function_returns_a_string_instance()
     {
-        $this->assertInstanceOf('Spatie\String\String', string('test'));
+        $this->assertInstanceOf(\Spatie\String\Str::class, string('test'));
     }
 
     /**

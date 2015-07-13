@@ -12,9 +12,9 @@ use Spatie\String\Integrations\Underscore;
  *
  * @see \Underscore\Methods\StringsMethods
  *
- * @method \Spatie\String\String accord($count, $many, $one, $zero = null)
- * @method \Spatie\String\String random($length = 16)
- * @method \Spatie\String\String quickRandom($length = 16)
+ * @method \Spatie\String\Str accord($count, $many, $one, $zero = null)
+ * @method \Spatie\String\Str random($length = 16)
+ * @method \Spatie\String\Str quickRandom($length = 16)
  * @method randomStrings($words, $length = 10)
  * @method bool endsWith($needles)
  * @method bool isIp()
@@ -23,28 +23,28 @@ use Spatie\String\Integrations\Underscore;
  * @method bool startsWith()
  * @method bool find($needle, $caseSensitive = false, $absolute = false)
  * @method array slice($slice)
- * @method \Spatie\String\String sliceFrom($slice)
- * @method \Spatie\String\String sliceTo($slice)
- * @method \Spatie\String\String baseClass()
- * @method \Spatie\String\String prepend($with)
- * @method \Spatie\String\String append($with)
- * @method \Spatie\String\String limit($limit = 100, $end = '...')
- * @method \Spatie\String\String remove($remove)
- * @method \Spatie\String\String replace($replace, $with)
- * @method \Spatie\String\String toggle($first, $second, $loose = false)
- * @method \Spatie\String\String slugify($separator = '-')
+ * @method \Spatie\String\Str sliceFrom($slice)
+ * @method \Spatie\String\Str sliceTo($slice)
+ * @method \Spatie\String\Str baseClass()
+ * @method \Spatie\String\Str prepend($with)
+ * @method \Spatie\String\Str append($with)
+ * @method \Spatie\String\Str limit($limit = 100, $end = '...')
+ * @method \Spatie\String\Str remove($remove)
+ * @method \Spatie\String\Str replace($replace, $with)
+ * @method \Spatie\String\Str toggle($first, $second, $loose = false)
+ * @method \Spatie\String\Str slugify($separator = '-')
  * @method array explode($with, $limit = null)
- * @method \Spatie\String\String lower()
- * @method \Spatie\String\String plural()
- * @method \Spatie\String\String singular()
- * @method \Spatie\String\String upper()
- * @method \Spatie\String\String title()
- * @method \Spatie\String\String words($words = 100, $end = '...')
- * @method \Spatie\String\String toPascalCase()
- * @method \Spatie\String\String toSnakeCase()
- * @method \Spatie\String\String toCamelCase()
+ * @method \Spatie\String\Str lower()
+ * @method \Spatie\String\Str plural()
+ * @method \Spatie\String\Str singular()
+ * @method \Spatie\String\Str upper()
+ * @method \Spatie\String\Str title()
+ * @method \Spatie\String\Str words($words = 100, $end = '...')
+ * @method \Spatie\String\Str toPascalCase()
+ * @method \Spatie\String\Str toSnakeCase()
+ * @method \Spatie\String\Str toCamelCase()
  */
-class String implements ArrayAccess
+class Str implements ArrayAccess
 {
     protected $string;
 
@@ -67,7 +67,7 @@ class String implements ArrayAccess
      * @param $start
      * @param $end
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function between($start, $end)
     {
@@ -101,7 +101,7 @@ class String implements ArrayAccess
     /**
      * Convert the string to uppercase.
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function toUpper()
     {
@@ -111,7 +111,7 @@ class String implements ArrayAccess
     /**
      * Convert the string to lowercase.
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function toLower()
     {
@@ -128,7 +128,7 @@ class String implements ArrayAccess
      * @param int    $length
      * @param string $moreTextIndicator
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function tease($length = 200, $moreTextIndicator = '...')
     {
@@ -174,7 +174,7 @@ class String implements ArrayAccess
      * @param $search
      * @param $replace
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function replaceLast($search, $replace)
     {
@@ -198,7 +198,7 @@ class String implements ArrayAccess
      *
      * @param $string
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function prefix($string)
     {
@@ -210,7 +210,7 @@ class String implements ArrayAccess
      *
      * @param $string
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function suffix($string)
     {
@@ -222,7 +222,7 @@ class String implements ArrayAccess
      *
      * @param $string
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function concat($string)
     {
@@ -232,7 +232,7 @@ class String implements ArrayAccess
     /**
      * Get the possessive version of a string.
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function possessive()
     {
@@ -247,7 +247,7 @@ class String implements ArrayAccess
      * @param string $delimiter
      * @param int    $index
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function segment($delimiter, $index)
     {
@@ -268,7 +268,7 @@ class String implements ArrayAccess
      *
      * @param string $delimiter
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function firstSegment($delimiter)
     {
@@ -280,7 +280,7 @@ class String implements ArrayAccess
      *
      * @param string $delimiter
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function lastSegment($delimiter)
     {
@@ -292,7 +292,7 @@ class String implements ArrayAccess
      *
      * @param string $delimiter
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function pop($delimiter)
     {
@@ -304,7 +304,7 @@ class String implements ArrayAccess
      *
      * @param string $characterMask
      *
-     * @return \Spatie\String\String
+     * @return \Spatie\String\Str
      */
     public function trim($characterMask = " \t\n\r\0\x0B")
     {
@@ -317,7 +317,7 @@ class String implements ArrayAccess
      * @param $method
      * @param $args
      *
-     * @return mixed|\Spatie\String\String
+     * @return mixed|\Spatie\String\Str
      *
      * @throws UnknownFunctionException
      */

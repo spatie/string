@@ -17,6 +17,6 @@ class ConcatTest extends \PHPUnit_Framework_TestCase
      */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf('Spatie\String\String', string('hello')->concat(' world'));
+        $this->assertInstanceOf(\Spatie\String\Str::class, string('hello')->concat(' world'));
     }
 }

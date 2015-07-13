@@ -25,6 +25,6 @@ class TrimTest extends \PHPUnit_Framework_TestCase
      */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf('Spatie\String\String', string(' foo ')->trim());
+        $this->assertInstanceOf(\Spatie\String\Str::class, string(' foo ')->trim());
     }
 }

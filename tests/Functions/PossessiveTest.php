@@ -18,6 +18,6 @@ class PossessiveTest extends \PHPUnit_Framework_TestCase
      */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf('Spatie\String\String', string('Bob')->possessive());
+        $this->assertInstanceOf(\Spatie\String\Str::class, string('Bob')->possessive());
     }
 }

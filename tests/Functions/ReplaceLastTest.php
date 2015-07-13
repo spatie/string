@@ -40,6 +40,6 @@ class ReplaceLastTest extends \PHPUnit_Framework_TestCase
      */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf('Spatie\String\String', string('test')->replaceLast('search', 'replace'));
+        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->replaceLast('search', 'replace'));
     }
 }

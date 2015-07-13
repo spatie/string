@@ -2,7 +2,7 @@
 
 namespace Spatie\String\Integrations;
 
-use Spatie\String\String;
+use Spatie\String\Str;
 
 class Underscore
 {
@@ -43,11 +43,11 @@ class Underscore
         ];
 
     /**
-     * @param \Spatie\String\String $string
+     * @param \Spatie\String\Str $string
      * @param string                $method
      * @param array                 $args
      *
-     * @return mixed|\Spatie\String\String
+     * @return mixed|\Spatie\String\Str
      */
     public function call($string, $method, $args)
     {
@@ -58,7 +58,7 @@ class Underscore
         $underscoreResult = call_user_func_array(['Underscore\Types\Strings', $method], $args);
 
         if ($this->methodReturnsAString($method)) {
-            return new String($underscoreResult);
+            return new Str($underscoreResult);
         }
 
         return $underscoreResult;

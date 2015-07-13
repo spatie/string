@@ -2,6 +2,13 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 2.0.0 - 2015-07-14
+### Added
+- PHP 7 compatibility
+
+### Remove
+- PHP 5.4 support
+
 ## 1.9.1 - 2015-06-26
 
 ### Changed
