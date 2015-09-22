@@ -2,11 +2,15 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 2.0.1 - 2015-09-22
+### Bugfix
+- Strings now have a more strict validation on instantiation. Trying to create a string from an array or an object that doesn't implement `__toString` now throws an exception.
+
 ## 2.0.0 - 2015-07-14
 ### Added
 - PHP 7 compatibility
 
-### Remove
+### Removed
 - PHP 5.4 support
 
 ## 1.9.1 - 2015-06-26

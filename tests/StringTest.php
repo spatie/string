@@ -2,6 +2,8 @@
 
 namespace Spatie\String\Test;
 
+use Spatie\String\Exceptions\ErrorCreatingStringException;
+
 class StringTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -26,6 +28,46 @@ class StringTest extends \PHPUnit_Framework_TestCase
     public function it_can_handle_a_non_empty_string()
     {
         $this->assertEquals('test', (string) string('test'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_doesnt_accept_arrays()
+    {
+        $this->setExpectedException(ErrorCreatingStringException::class);
+
+        string(['foo', 'bar', 'baz']);
+    }
+
+    /**
+     * @test
+     */
+    public function it_doesnt_accept_empty_arrays()
+    {
+        $this->setExpectedException(ErrorCreatingStringException::class);
+
+        string([]);
+    }
+
+    /**
+     * @test
+     */
+    public function it_doesnt_accept_objects_that_dont_implement_tostring()
+    {
+        $this->setExpectedException(ErrorCreatingStringException::class);
+
+        string(new \StdClass());
+    }
+
+    /**
+     * @test
+     */
+    public function it_accepts_objects_that_implement_tostring()
+    {
+        $object = string('foo');
+
+        $this->assertEquals('foo', (string) string($object));
     }
 
     /**

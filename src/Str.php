@@ -5,6 +5,7 @@ namespace Spatie\String;
 use ArrayAccess;
 use Spatie\String\Exceptions\UnknownFunctionException;
 use Spatie\String\Exceptions\UnsetOffsetException;
+use Spatie\String\Exceptions\ErrorCreatingStringException;
 use Spatie\String\Integrations\Underscore;
 
 /**
@@ -46,11 +47,27 @@ use Spatie\String\Integrations\Underscore;
  */
 class Str implements ArrayAccess
 {
+    /**
+     * @var string
+     */
     protected $string;
 
+    /**
+     * @param string $string
+     */
     public function __construct($string = '')
     {
-        $this->string = $string;
+        if (is_array($string)) {
+            throw new ErrorCreatingStringException('Can\'t create string from an array');
+        }
+
+        if (is_object($string) && ! method_exists($string, '__toString')) {
+            throw new ErrorCreatingStringException(
+                'Can\'t create string from an object that doesn\'t implement __toString'
+            );
+        }
+
+        $this->string = (string) $string;
     }
 
     /**
