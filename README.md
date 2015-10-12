@@ -43,10 +43,10 @@ echo 'stuck in the ' . string('StartMiddleEnd')->between('Start', 'End')->toLowe
 You can also use offsets to manipulate a string.
 
 ```php
-echo string('hello')[1]->toUpper(); // outputs "E"
+echo string('hello')[1]->toUpper(); //outputs "E"
 
 $string = string('gray');
-$string[2] = 'e'; //
+$string[2] = 'e';
 echo $string->toUpper(); //outputs "GREY"
 ```
 
