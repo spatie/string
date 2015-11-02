@@ -329,6 +329,20 @@ class Str implements ArrayAccess
     }
 
     /**
+     * Alias for find
+     *
+     * @param array|string $needle        The needle(s) to search for
+     * @param bool         $caseSensitive Whether the function is case sensitive or not
+     * @param bool         $absolute      Whether all needle need to be found or whether one is enough
+     *
+     * @return bool
+     */
+    public function contains($needle, $caseSensitive = false, $absolute = false)
+    {
+        return $this->find($needle, $caseSensitive, $absolute);
+    }
+
+    /**
      * Unknown methods calls will be handled by various integrations.
      *
      * @param $method
