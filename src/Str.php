@@ -331,9 +331,9 @@ class Str implements ArrayAccess
     /**
      * Alias for find
      *
-     * @param array|string $needle        The needle(s) to search for
-     * @param bool         $caseSensitive Whether the function is case sensitive or not
-     * @param bool         $absolute      Whether all needle need to be found or whether one is enough
+     * @param array|string $needle
+     * @param bool $caseSensitive
+     * @param bool $absolute
      *
      * @return bool
      */

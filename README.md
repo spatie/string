@@ -253,6 +253,26 @@ string('foo/bar/baz')->pop('/'); // foo/bar
 string('foo/bar/baz')->pop('/')->pop('/'); // foo
 ```
 
+## contains
+```php
+/**
+ * Check whether a string contains a substring
+ *
+ * @param array|string $needle
+ * @param bool $caseSensitive
+ * @param bool $absolute
+ *
+ * @return bool
+ */
+public function contains($delimiter)
+```
+
+Example:
+```php
+string('hello world')->contains('world'); // true
+string('hello world')->contains('belgium'); // false
+```
+
 ## Integration with underscore.php
 In addition to the methods described above, you can also 
 use [all string methods](https://github.com/Anahkiasen/underscore-php/blob/master/src/Methods/StringsMethods.php) provided

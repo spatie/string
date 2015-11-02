@@ -2,6 +2,10 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 2.1.0 - 2015-07-14
+### Added
+- Contains function (alias for find)
+
 ## 2.0.1 - 2015-09-22
 ### Bugfix
 - Strings now have a more strict validation on instantiation. Trying to create a string from an array or an object that doesn't implement `__toString` now throws an exception.
