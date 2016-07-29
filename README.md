@@ -21,6 +21,14 @@ You can install this package via composer:
 composer require spatie/string
 ```
 
+## Postcardware
+
+You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment you are required to send us a postcard from your hometown, mentioning which of our package(s) you are using.
+
+Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
+
+The best postcards will get published on the open source page on our website.
+
 ## Usage
 
 First you must wrap a native string in a String-object. This can be done with the `string`-function.
