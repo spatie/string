@@ -238,7 +238,6 @@ Example:
 ```php
 string('foo/bar/baz')->segment('/', 0); // foo
 string('foo/bar/baz')->segment('/', 1); // bar
-string('foo/bar/baz')->segment('/', 0, true); // baz
 string('foo/bar/baz')->firstSegment('/'); // foo
 string('foo/bar/baz')->lastSegment('/'); // baz
 ```
