@@ -3,9 +3,9 @@
 namespace Spatie\String;
 
 use ArrayAccess;
+use Spatie\String\Exceptions\ErrorCreatingStringException;
 use Spatie\String\Exceptions\UnknownFunctionException;
 use Spatie\String\Exceptions\UnsetOffsetException;
-use Spatie\String\Exceptions\ErrorCreatingStringException;
 use Spatie\String\Integrations\Underscore;
 
 /**
@@ -61,7 +61,7 @@ class Str implements ArrayAccess
             throw new ErrorCreatingStringException('Can\'t create string from an array');
         }
 
-        if (is_object($string) && ! method_exists($string, '__toString')) {
+        if (is_object($string) && !method_exists($string, '__toString')) {
             throw new ErrorCreatingStringException(
                 'Can\'t create string from an object that doesn\'t implement __toString'
             );
@@ -329,11 +329,11 @@ class Str implements ArrayAccess
     }
 
     /**
-     * Alias for find
+     * Alias for find.
      *
      * @param array|string $needle
-     * @param bool $caseSensitive
-     * @param bool $absolute
+     * @param bool         $caseSensitive
+     * @param bool         $absolute
      *
      * @return bool
      */
@@ -348,9 +348,9 @@ class Str implements ArrayAccess
      * @param $method
      * @param $args
      *
-     * @return mixed|\Spatie\String\Str
-     *
      * @throws UnknownFunctionException
+     *
+     * @return mixed|\Spatie\String\Str
      */
     public function __call($method, $args)
     {

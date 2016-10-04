@@ -9,43 +9,43 @@ class Underscore
     protected $underscoreMethods =
         [
             //name, firstArgumentIsString, returnsAString
-            'accord' => [false, true],
-            'random' => [false, true],
-            'quickRandom' => [false, true],
+            'accord'        => [false, true],
+            'random'        => [false, true],
+            'quickRandom'   => [false, true],
             'randomStrings' => [false, true],
-            'endsWith' => [true, false],
-            'isIp' => [true, false],
-            'isEmail' => [true, false],
-            'isUrl' => [true, false],
-            'startsWith' => [true, false],
-            'find' => [true, false],
-            'slice' => [true, false],
-            'sliceFrom' => [true, true],
-            'sliceTo' => [true, true],
-            'baseClass' => [true, true],
-            'prepend' => [true, true],
-            'append' => [true, true],
-            'limit' => [true, true],
-            'remove' => [true, true],
-            'replace' => [true, true],
-            'toggle' => [true, true],
-            'slugify' => [true, true],
-            'explode' => [true, false],
-            'lower' => [true, true],
-            'plural' => [true, true],
-            'singular' => [true, true],
-            'upper' => [true, true],
-            'title' => [true, true],
-            'words' => [true, true],
-            'toPascalCase' => [true, true],
-            'toSnakeCase' => [true, true],
-            'toCamelCase' => [true, true],
+            'endsWith'      => [true, false],
+            'isIp'          => [true, false],
+            'isEmail'       => [true, false],
+            'isUrl'         => [true, false],
+            'startsWith'    => [true, false],
+            'find'          => [true, false],
+            'slice'         => [true, false],
+            'sliceFrom'     => [true, true],
+            'sliceTo'       => [true, true],
+            'baseClass'     => [true, true],
+            'prepend'       => [true, true],
+            'append'        => [true, true],
+            'limit'         => [true, true],
+            'remove'        => [true, true],
+            'replace'       => [true, true],
+            'toggle'        => [true, true],
+            'slugify'       => [true, true],
+            'explode'       => [true, false],
+            'lower'         => [true, true],
+            'plural'        => [true, true],
+            'singular'      => [true, true],
+            'upper'         => [true, true],
+            'title'         => [true, true],
+            'words'         => [true, true],
+            'toPascalCase'  => [true, true],
+            'toSnakeCase'   => [true, true],
+            'toCamelCase'   => [true, true],
         ];
 
     /**
      * @param \Spatie\String\Str $string
-     * @param string                $method
-     * @param array                 $args
+     * @param string             $method
+     * @param array              $args
      *
      * @return mixed|\Spatie\String\Str
      */
