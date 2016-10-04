@@ -10,7 +10,7 @@ class SegmentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', (string) string('foo/bar/baz')->segment('/', 0));
         $this->assertEquals('bar', (string) string('foo/bar/baz')->segment('/', 1));
         $this->assertEquals('baz', (string) string('foo/bar/baz')->segment('/', 2));
-        $this->assertEquals('',    (string) string('foo/bar/baz')->segment('/', 3));
+        $this->assertEquals('', (string) string('foo/bar/baz')->segment('/', 3));
     }
 
     /** @test */
@@ -25,7 +25,7 @@ class SegmentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('baz', (string) string('foo/bar/baz')->segment('/', -1));
         $this->assertEquals('bar', (string) string('foo/bar/baz')->segment('/', -2));
         $this->assertEquals('foo', (string) string('foo/bar/baz')->segment('/', -3));
-        $this->assertEquals('',    (string) string('foo/bar/baz')->segment('/', -4));
+        $this->assertEquals('', (string) string('foo/bar/baz')->segment('/', -4));
     }
 
     /** @test */
