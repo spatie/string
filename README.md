@@ -7,6 +7,7 @@
 [![Build Status](https://img.shields.io/travis/spatie/string/master.svg?style=flat-square)](https://travis-ci.org/spatie/string)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/string.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/string)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/23a69b38-e4d1-4893-bd14-c45c8b6f07a7/mini.png)](https://insight.sensiolabs.com/projects/23a69b38-e4d1-4893-bd14-c45c8b6f07a7)
+[![StyleCI](https://styleci.io/repos/36919962/shield?branch=master)](https://styleci.io/repos/36919962)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/string.svg?style=flat-square)](https://packagist.org/packages/spatie/string)
 
 This package provides a handy way to work with strings in php.
