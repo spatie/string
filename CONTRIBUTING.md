@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/freekmurze/string).
+We accept contributions via Pull Requests on [Github](https://github.com/spatie/laravel-backup).
 
 
 ## Pull Requests
@@ -25,7 +25,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/freekmu
 ## Running Tests
 
 ``` bash
-$ phpunit
+$ composer test
 ```
 
 

@@ -3,8 +3,6 @@
 use Spatie\String\Str;
 
 /**
- * Poor man's string factory.
- *
  * @param string $string
  *
  * @return \Spatie\String\Str

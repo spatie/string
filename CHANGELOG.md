@@ -2,6 +2,9 @@
 
 All Notable changes to `spatie/string` will be documented in this file
 
+## 2.2.0 - 2016-10-04
+- add `replaceFirst`
+
 ## 2.1.0 - 2015-07-14
 ### Added
 - Contains function (alias for find)

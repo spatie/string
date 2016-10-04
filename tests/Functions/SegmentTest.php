@@ -4,9 +4,7 @@ namespace Spatie\String\Test\Functions;
 
 class SegmentTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_retrieves_a_segment()
     {
         $this->assertEquals('foo', (string) string('foo/bar/baz')->segment('/', 0));
@@ -15,17 +13,13 @@ class SegmentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('',    (string) string('foo/bar/baz')->segment('/', 3));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_accepts_empty_strings()
     {
         $this->assertEquals('', (string) string('')->segment('/', 0));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_retrieves_a_segment_in_reverse()
     {
         $this->assertEquals('baz', (string) string('foo/bar/baz')->segment('/', -1));
@@ -34,33 +28,25 @@ class SegmentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('',    (string) string('foo/bar/baz')->segment('/', -4));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_retrieves_the_first_segment()
     {
         $this->assertEquals('foo', (string) string('foo/bar/baz')->firstSegment('/'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_retrieves_the_last_segment()
     {
         $this->assertEquals('baz', (string) string('foo/bar/baz')->lastSegment('/'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_pops_the_last_segment()
     {
         $this->assertEquals('foo/bar', (string) string('foo/bar/baz')->pop('/'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_is_chainable()
     {
         $this->assertInstanceOf(\Spatie\String\Str::class, string('foo/bar/baz')->segment('/', 0));

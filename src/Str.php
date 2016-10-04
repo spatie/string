@@ -186,6 +186,31 @@ class Str implements ArrayAccess
     }
 
     /**
+     * Replace the first occurrence of a string.
+     *
+     * @param $search
+     * @param $replace
+     *
+     * @return \Spatie\String\Str
+     */
+    public function replaceFirst($search, $replace)
+    {
+        if ($search == '') {
+            return $this;
+        }
+
+        $position = strpos($this->string, $search);
+
+        if ($position === false) {
+            return $this;
+        }
+
+        $resultString = substr_replace($this->string, $replace, $position, strlen($search));
+
+        return new static($resultString);
+    }
+
+    /**
      * Replace the last occurrence of a string.
      *
      * @param $search

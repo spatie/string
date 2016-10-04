@@ -6,63 +6,49 @@ use Spatie\String\Exceptions\ErrorCreatingStringException;
 
 class StringTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function the_string_function_returns_a_string_instance()
     {
         $this->assertInstanceOf(\Spatie\String\Str::class, string('test'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_handle_an_empty_string()
     {
         $this->assertEquals('', (string) string(''));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_handle_a_non_empty_string()
     {
         $this->assertEquals('test', (string) string('test'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_doesnt_accept_arrays()
     {
-        $this->setExpectedException(ErrorCreatingStringException::class);
+        $this->expectException(ErrorCreatingStringException::class);
 
         string(['foo', 'bar', 'baz']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_doesnt_accept_empty_arrays()
     {
-        $this->setExpectedException(ErrorCreatingStringException::class);
+        $this->expectException(ErrorCreatingStringException::class);
 
         string([]);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_doesnt_accept_objects_that_dont_implement_tostring()
     {
-        $this->setExpectedException(ErrorCreatingStringException::class);
+        $this->expectException(ErrorCreatingStringException::class);
 
         string(new \StdClass());
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_accepts_objects_that_implement_tostring()
     {
         $object = string('foo');
@@ -70,17 +56,13 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', (string) string($object));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_be_concatinated_with_a_string()
     {
         $this->assertEquals('testconcatination', string('test').'concatination');
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_is_chainable()
     {
         $result = string('StartMiddleEnd')
@@ -90,19 +72,15 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('MIDDLE', (string) $result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_raises_an_exception_when_an_undefined_method_is_called()
     {
-        $this->setExpectedException('Spatie\String\Exceptions\UnknownFunctionException');
+        $this->expectException('Spatie\String\Exceptions\UnknownFunctionException');
 
         string('test')->unknownFunction('hi');
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_make_a_string_by_using_an_offset()
     {
         $this->assertEquals('s', string('string')[0]);
@@ -110,26 +88,20 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('g', string('string')[-1]);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_returns_an_empty_string_when_using_an_invalid_offset()
     {
         $this->assertEquals('', string('string')[1000]);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_still_chain_after_using_an_offset()
     {
         $this->assertEquals('S', string('string')[0]->toUpper());
         $this->assertEquals('T', string('string')->toUpper()[1]);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_change_a_string_by_using_an_offset()
     {
         $string = string('string');
@@ -137,9 +109,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Xtring', (string) $string);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_determine_if_an_offset_is_set()
     {
         $string = string('s');
@@ -147,13 +117,11 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(isset($string[1]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_raises_an_exception_when_trying_to_unset_via_an_offset()
     {
         $string = string('string');
-        $this->setExpectedException('Spatie\String\Exceptions\UnsetOffsetException');
+        $this->expectException('Spatie\String\Exceptions\UnsetOffsetException');
         unset($string[0]);
     }
 }

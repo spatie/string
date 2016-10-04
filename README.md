@@ -129,6 +129,24 @@ $longText = 'Now that there is the Tec-9, a crappy spray gun from South Miami. T
 string($longText)->tease(10); // Now that...
 ```
 
+### replaceFirst
+```php
+/**
+ * Replace the first occurrence of a string.
+ *
+ * @param $search
+ * @param $replace
+ * @return \Spatie\String\String
+ */
+public function replaceFirst($search, $replace)
+```
+
+Example:
+```php
+$sentence = 'A good thing is not a good thing.';
+string($sentence)->replaceLast('good', 'bad'); // A good thing is not a bad thing.
+```
+
 ### replaceLast
 ```php
 /**
