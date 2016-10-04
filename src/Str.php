@@ -61,7 +61,7 @@ class Str implements ArrayAccess
             throw new ErrorCreatingStringException('Can\'t create string from an array');
         }
 
-        if (is_object($string) && !method_exists($string, '__toString')) {
+        if (is_object($string) && ! method_exists($string, '__toString')) {
             throw new ErrorCreatingStringException(
                 'Can\'t create string from an object that doesn\'t implement __toString'
             );
