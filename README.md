@@ -145,7 +145,7 @@ public function replaceFirst($search, $replace)
 Example:
 ```php
 $sentence = 'A good thing is not a good thing.';
-string($sentence)->replaceLast('good', 'bad'); // A good thing is not a bad thing.
+string($sentence)->replaceFirst('good', 'bad'); // A bad thing is not a good thing.
 ```
 
 ### replaceLast
