@@ -278,6 +278,10 @@ class Str implements ArrayAccess
      */
     public function possessive()
     {
+        if ($this->string == '') {
+            return new static();
+        }
+
         return new static($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
     }
 

@@ -12,6 +12,12 @@ class PossessiveTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
+    public function it_can_handle_an_empty_string()
+    {
+        $this->assertEquals('', (string) string('')->possessive());
+    }
+
+    /** @test */
     public function it_is_chainable()
     {
         $this->assertInstanceOf(\Spatie\String\Str::class, string('Bob')->possessive());
