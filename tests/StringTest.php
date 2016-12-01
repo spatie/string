@@ -27,7 +27,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_doesnt_accept_arrays()
     {
-        $this->expectException(ErrorCreatingStringException::class);
+        $this->setExpectedException(ErrorCreatingStringException::class);
 
         string(['foo', 'bar', 'baz']);
     }
@@ -35,7 +35,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_doesnt_accept_empty_arrays()
     {
-        $this->expectException(ErrorCreatingStringException::class);
+        $this->setExpectedException(ErrorCreatingStringException::class);
 
         string([]);
     }
@@ -43,7 +43,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_doesnt_accept_objects_that_dont_implement_tostring()
     {
-        $this->expectException(ErrorCreatingStringException::class);
+        $this->setExpectedException(ErrorCreatingStringException::class);
 
         string(new \StdClass());
     }
@@ -75,7 +75,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_raises_an_exception_when_an_undefined_method_is_called()
     {
-        $this->expectException('Spatie\String\Exceptions\UnknownFunctionException');
+        $this->setExpectedException('Spatie\String\Exceptions\UnknownFunctionException');
 
         string('test')->unknownFunction('hi');
     }
@@ -121,7 +121,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     public function it_raises_an_exception_when_trying_to_unset_via_an_offset()
     {
         $string = string('string');
-        $this->expectException('Spatie\String\Exceptions\UnsetOffsetException');
+        $this->setExpectedException('Spatie\String\Exceptions\UnsetOffsetException');
         unset($string[0]);
     }
 }
