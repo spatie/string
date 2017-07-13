@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `spatie/string` will be documented in this file
+All notable changes to `spatie/string` will be documented in this file
 
 ## 2.2.1 - 2016-12-01
 - fix error when using `possisive` on an empty string
