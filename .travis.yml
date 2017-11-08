@@ -4,8 +4,7 @@ php:
   - 5.6
   - 7.0
   - 7.1
-
-sudo: false
+  - 7.2
 
 cache:
   directories:
