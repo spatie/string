@@ -281,7 +281,7 @@ class Str implements ArrayAccess
         if ($this->string == '') {
             return new static();
         }
-        
+
         $noApostropheEdgeCases = ['it'];
 
         if (in_array($this->string, $noApostropheEdgeCases)) {
