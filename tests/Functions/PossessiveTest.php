@@ -22,4 +22,10 @@ class PossessiveTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(\Spatie\String\Str::class, string('Bob')->possessive());
     }
+
+    /** @test */
+    public function it_can_handle_its_edge_case()
+    {
+        $this->assertEquals('its', (string) string('it')->possessive());
+    }
 }

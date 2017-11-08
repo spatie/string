@@ -281,6 +281,12 @@ class Str implements ArrayAccess
         if ($this->string == '') {
             return new static();
         }
+        
+        $noApostropheEdgeCases = ['it'];
+
+        if (in_array($this->string, $noApostropheEdgeCases)) {
+            return new static($this->string.'s');
+        }
 
         return new static($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
     }
