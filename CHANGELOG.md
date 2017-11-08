@@ -2,8 +2,11 @@
 
 All notable changes to `spatie/string` will be documented in this file
 
+## 2.2.2 - 2017-11-08
+- fix possesive output of `it`
+
 ## 2.2.1 - 2016-12-01
-- fix error when using `possisive` on an empty string
+- fix error when using `possesive` on an empty string
 
 ## 2.2.0 - 2016-10-04
 - add `replaceFirst`
