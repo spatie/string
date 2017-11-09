@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class TrimTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class TrimTest extends TestCase
 {
     /** @test */
     public function it_trims_default_characters()

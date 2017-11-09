@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class ReplaceFirstTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ReplaceFirstTest extends TestCase
 {
     /** @test */
     public function it_replaces_the_first_occurence_of_a_string_by_another_string()

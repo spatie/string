@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class ContainsTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ContainsTest extends TestCase
 {
     /** @test */
     public function it_is_an_alias_for_find()

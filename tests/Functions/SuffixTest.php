@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class SuffixTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class SuffixTest extends TestCase
 {
     /** @test */
     public function it_can_suffix_a_string()

@@ -2,9 +2,10 @@
 
 namespace Spatie\String\Test;
 
+use PHPUnit\Framework\TestCase;
 use Spatie\String\Exceptions\ErrorCreatingStringException;
 
-class StringTest extends \PHPUnit_Framework_TestCase
+class StringTest extends TestCase
 {
     /** @test */
     public function the_string_function_returns_a_string_instance()
