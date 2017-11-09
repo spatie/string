@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class ConcatTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ConcatTest extends TestCase
 {
     /** @test */
     public function it_can_concatenate_a_string()

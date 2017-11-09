@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class ReplaceLastTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ReplaceLastTest extends TestCase
 {
     /** @test */
     public function it_replaces_the_last_occurence_of_a_string_by_another_string()

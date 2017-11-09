@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class PrefixTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class PrefixTest extends TestCase
 {
     /** @test */
     public function it_can_prefix_a_string()

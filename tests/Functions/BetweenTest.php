@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class BetweenTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class BetweenTest extends TestCase
 {
     /** @test */
     public function it_can_return_the_string_between_two_string()

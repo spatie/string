@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class ToLowerTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ToLowerTest extends TestCase
 {
     /** @test */
     public function it_can_convert_a_string_to_lowercase()

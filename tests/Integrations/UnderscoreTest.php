@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Integrations;
 
-class UnderscoreTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class UnderscoreTest extends TestCase
 {
     /** @test */
     public function it_can_use_underscores_methods()

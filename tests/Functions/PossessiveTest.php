@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class PossessiveTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class PossessiveTest extends TestCase
 {
     /** @test */
     public function it_can_create_the_possessive_version_of_a_string()

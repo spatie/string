@@ -2,7 +2,9 @@
 
 namespace Spatie\String\Test\Functions;
 
-class SegmentTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class SegmentTest extends TestCase
 {
     /** @test */
     public function it_retrieves_a_segment()
