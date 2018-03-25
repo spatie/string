@@ -125,4 +125,20 @@ class StringTest extends TestCase
         $this->setExpectedException('Spatie\String\Exceptions\UnsetOffsetException');
         unset($string[0]);
     }
+    
+    /** @test */
+    public function it_can_push_and_pop()
+    {
+        $this->expectOutputString('foo/bar/baz');
+        $foo = string('foo/bar')->pop('/')->push('/', 'baz')->pop('/')->push('/', 'bar')->push('/', 'baz');
+        echo $foo;
+    }
+
+    /** @test */
+    public function it_can_enqueue_and_dequeue()
+    {
+        $this->expectOutputString('foo/bar/baz');
+        $foo = string('foo')->enqueue('/', 'baz')->enqueue('/', 'bar')->enqueue('/', 'foo')->dequeue('/');
+        echo $foo;
+    }
 }
