@@ -355,7 +355,7 @@ class Str implements ArrayAccess
      * Push (add) to the last segment of a string based on a delimiter.
      *
      * @param string $delimiter
-	 * @param string $item
+     * @param string $item
      *
      * @return \Spatie\String\Str
      */
@@ -364,7 +364,7 @@ class Str implements ArrayAccess
         return (new static($this->string))->concat($delimiter.$item);
     }
 	
-	/**
+    /**
      * Dequeue (remove) the last segment of a string based on a delimiter.
      *
      * @param string $delimiter
@@ -376,11 +376,11 @@ class Str implements ArrayAccess
         return $this->pop($delimiter);
     }
 
-	/**
+    /**
      * Enqueue (add) to the first segment of a string based on a delimiter.
      *
      * @param string $delimiter
-	 * @param string $item
+     * @param string $item
      *
      * @return \Spatie\String\Str
      */
