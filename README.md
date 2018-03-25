@@ -279,6 +279,62 @@ string('foo/bar/baz')->pop('/'); // foo/bar
 string('foo/bar/baz')->pop('/')->pop('/'); // foo
 ```
 
+## push
+```php
+/**
+ * Push (add) to the last segment of a string based on a delimiter.
+ *
+ * @param string $delimiter
+ * @param string $item
+ *
+ * @return \Spatie\String\Str
+ */
+public function push($delimiter, $item)
+```
+
+Example:
+```php
+string('foo/bar/')->push('/', 'baz'); // foo/bar/baz
+string('foo')->push('/', 'bar')->push('/', 'baz'); // foo/bar/baz
+```
+
+## dequeue
+```php
+/**
+ * Dequeue (remove) the last segment of a string based on a delimiter.
+ *
+ * @param string $delimiter
+ *
+ * @return \Spatie\String\Str
+ */
+public function dequeue($delimiter)
+```
+
+Example:
+```php
+string('foo/bar/baz')->dequeue('/'); // foo/bar
+string('foo/bar/baz')->dequeue('/')->dequeue('/'); // foo
+```
+
+## enqueue
+```php
+/**
+ * Enqueue (add) to the first segment of a string based on a delimiter.
+ *
+ * @param string $delimiter
+ * @param string $item
+ *
+ * @return \Spatie\String\Str
+ */
+public function enqueue($delimiter, $item)
+```
+
+Example:
+```php
+string('bar')->enqueue('/', 'foo'); // foo/bar
+string('baz')->enqueue('/', 'bar')->enqueue('/', 'foo'); // foo/bar/baz
+```
+
 ## contains
 ```php
 /**
