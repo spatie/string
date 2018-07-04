@@ -352,6 +352,44 @@ class Str implements ArrayAccess
     }
 
     /**
+     * Push (add) to the last segment of a string based on a delimiter.
+     *
+     * @param string $delimiter
+     * @param string $item
+     *
+     * @return \Spatie\String\Str
+     */
+    public function push($delimiter, $item)
+    {
+        return (new static($this->string))->concat($delimiter.$item);
+    }
+	
+    /**
+     * Dequeue (remove) the last segment of a string based on a delimiter.
+     *
+     * @param string $delimiter
+     *
+     * @return \Spatie\String\Str
+     */
+    public function dequeue($delimiter)
+    {
+        return $this->pop($delimiter);
+    }
+
+    /**
+     * Enqueue (add) to the first segment of a string based on a delimiter.
+     *
+     * @param string $delimiter
+     * @param string $item
+     *
+     * @return \Spatie\String\Str
+     */
+    public function enqueue($delimiter, $item)
+    {
+        return (new static($this->string))->prefix($item.$delimiter);
+    }
+    
+    /**
      * Strip whitespace (or other characters) from the beginning and end of a string.
      *
      * @param string $characterMask
