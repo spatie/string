@@ -2,6 +2,10 @@
 
 All notable changes to `spatie/string` will be documented in this file
 
+## 2.2.3 - 2020-11-27
+
+- add support for PHP 8
+
 ## 2.2.2 - 2017-11-08
 - fix possesive output of `it`
 
