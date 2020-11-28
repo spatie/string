@@ -3,10 +3,10 @@
 namespace Spatie\String;
 
 use ArrayAccess;
-use Spatie\String\Integrations\Underscore;
-use Spatie\String\Exceptions\UnsetOffsetException;
-use Spatie\String\Exceptions\UnknownFunctionException;
 use Spatie\String\Exceptions\ErrorCreatingStringException;
+use Spatie\String\Exceptions\UnknownFunctionException;
+use Spatie\String\Exceptions\UnsetOffsetException;
+use Spatie\String\Integrations\Underscore;
 
 /**
  * Magic methods provided by underscore are documented here.
@@ -16,14 +16,14 @@ use Spatie\String\Exceptions\ErrorCreatingStringException;
  * @method \Spatie\String\Str accord($count, $many, $one, $zero = null)
  * @method \Spatie\String\Str random($length = 16)
  * @method \Spatie\String\Str quickRandom($length = 16)
- * @method randomStrings($words, $length = 10)
- * @method bool endsWith($needles)
- * @method bool isIp()
- * @method bool isEmail()
- * @method bool isUrl()
- * @method bool startsWith()
- * @method bool find($needle, $caseSensitive = false, $absolute = false)
- * @method array slice($slice)
+ * @method                    randomStrings($words, $length = 10)
+ * @method bool               endsWith($needles)
+ * @method bool               isIp()
+ * @method bool               isEmail()
+ * @method bool               isUrl()
+ * @method bool               startsWith()
+ * @method bool               find($needle, $caseSensitive = false, $absolute = false)
+ * @method array              slice($slice)
  * @method \Spatie\String\Str sliceFrom($slice)
  * @method \Spatie\String\Str sliceTo($slice)
  * @method \Spatie\String\Str baseClass()
@@ -34,7 +34,7 @@ use Spatie\String\Exceptions\ErrorCreatingStringException;
  * @method \Spatie\String\Str replace($replace, $with)
  * @method \Spatie\String\Str toggle($first, $second, $loose = false)
  * @method \Spatie\String\Str slugify($separator = '-')
- * @method array explode($with, $limit = null)
+ * @method array              explode($with, $limit = null)
  * @method \Spatie\String\Str lower()
  * @method \Spatie\String\Str plural()
  * @method \Spatie\String\Str singular()
@@ -61,7 +61,7 @@ class Str implements ArrayAccess
             throw new ErrorCreatingStringException('Can\'t create string from an array');
         }
 
-        if (is_object($string) && ! method_exists($string, '__toString')) {
+        if (is_object($string) && !method_exists($string, '__toString')) {
             throw new ErrorCreatingStringException(
                 'Can\'t create string from an object that doesn\'t implement __toString'
             );
