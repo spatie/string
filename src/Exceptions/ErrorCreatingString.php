@@ -4,6 +4,6 @@ namespace Spatie\String\Exceptions;
 
 use Exception;
 
-class UnsetOffsetException extends Exception
+class ErrorCreatingString extends Exception
 {
 }

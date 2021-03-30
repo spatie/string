@@ -3,7 +3,7 @@
 namespace Spatie\String\Test;
 
 use PHPUnit\Framework\TestCase;
-use Spatie\String\Exceptions\ErrorCreatingStringException;
+use Spatie\String\Exceptions\ErrorCreatingString;
 
 class StringTest extends TestCase
 {
@@ -28,7 +28,7 @@ class StringTest extends TestCase
     /** @test */
     public function it_doesnt_accept_arrays()
     {
-        $this->expectException(ErrorCreatingStringException::class);
+        $this->expectException(ErrorCreatingString::class);
 
         string(['foo', 'bar', 'baz']);
     }
@@ -36,7 +36,7 @@ class StringTest extends TestCase
     /** @test */
     public function it_doesnt_accept_empty_arrays()
     {
-        $this->expectException(ErrorCreatingStringException::class);
+        $this->expectException(ErrorCreatingString::class);
 
         string([]);
     }
@@ -44,7 +44,7 @@ class StringTest extends TestCase
     /** @test */
     public function it_doesnt_accept_objects_that_dont_implement_tostring()
     {
-        $this->expectException(ErrorCreatingStringException::class);
+        $this->expectException(ErrorCreatingString::class);
 
         string(new \StdClass());
     }
@@ -76,7 +76,7 @@ class StringTest extends TestCase
     /** @test */
     public function it_raises_an_exception_when_an_undefined_method_is_called()
     {
-        $this->expectException('Spatie\String\Exceptions\UnknownFunctionException');
+        $this->expectException('Spatie\String\Exceptions\UnknownFunction');
 
         string('test')->unknownFunction('hi');
     }
@@ -122,7 +122,7 @@ class StringTest extends TestCase
     public function it_raises_an_exception_when_trying_to_unset_via_an_offset()
     {
         $string = string('string');
-        $this->expectException('Spatie\String\Exceptions\UnsetOffsetException');
+        $this->expectException('Spatie\String\Exceptions\UnsetOffset');
         unset($string[0]);
     }
 }

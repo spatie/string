@@ -4,9 +4,9 @@ namespace Spatie\String;
 
 use ArrayAccess;
 use Spatie\String\Integrations\Underscore;
-use Spatie\String\Exceptions\UnsetOffsetException;
-use Spatie\String\Exceptions\UnknownFunctionException;
-use Spatie\String\Exceptions\ErrorCreatingStringException;
+use Spatie\String\Exceptions\UnsetOffset;
+use Spatie\String\Exceptions\UnknownFunction;
+use Spatie\String\Exceptions\ErrorCreatingString;
 
 /**
  * Magic methods provided by underscore are documented here.
@@ -52,11 +52,11 @@ class Str implements ArrayAccess
     public function __construct(mixed $string = '')
     {
         if (is_array($string)) {
-            throw new ErrorCreatingStringException('Can\'t create string from an array');
+            throw new ErrorCreatingString('Can\'t create string from an array');
         }
 
         if (is_object($string) && ! method_exists($string, '__toString')) {
-            throw new ErrorCreatingStringException(
+            throw new ErrorCreatingString(
                 'Can\'t create string from an object that doesn\'t implement __toString'
             );
         }
@@ -304,9 +304,9 @@ class Str implements ArrayAccess
      * @param $method
      * @param $args
      *
-     * @throws UnknownFunctionException
-     *
      * @return mixed|\Spatie\String\Str
+     *@throws UnknownFunction
+     *
      */
     public function __call($method, $args)
     {
@@ -316,7 +316,7 @@ class Str implements ArrayAccess
             return $underscore->call($this, $method, $args);
         }
 
-        throw new UnknownFunctionException(sprintf('String function %s does not exist', $method));
+        throw new UnknownFunction(sprintf('String function %s does not exist', $method));
     }
 
     public function offsetExists($offset)
@@ -338,6 +338,6 @@ class Str implements ArrayAccess
 
     public function offsetUnset($offset)
     {
-        throw new UnsetOffsetException();
+        throw new UnsetOffset();
     }
 }
