@@ -2,7 +2,7 @@
 
 All notable changes to `spatie/string` will be documented in this file
 
-## 3.0.0 - unreleased
+## 3.0.0 - 2021-03-30
 
 - Require PHP 8+
 - Drop support for all PHP 7.x versions
