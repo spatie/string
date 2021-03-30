@@ -2,12 +2,7 @@
 
 use Spatie\String\Str;
 
-/**
- * @param string $string
- *
- * @return \Spatie\String\Str
- */
-function string($string = '')
+function string(mixed $string = ''): Str
 {
     return new Str($string);
 }

@@ -6,7 +6,7 @@ use Spatie\String\Str;
 
 class Underscore
 {
-    protected $underscoreMethods =
+    protected array $underscoreMethods =
         [
             //name, firstArgumentIsString, returnsAString
             'accord'        => [false, true],
@@ -49,7 +49,7 @@ class Underscore
      *
      * @return mixed|\Spatie\String\Str
      */
-    public function call($string, $method, $args)
+    public function call(Str $string, string $method, array $args)
     {
         if ($this->methodUsesStringAsFirstArgument($method)) {
             array_unshift($args, (string) $string);
@@ -64,38 +64,17 @@ class Underscore
         return $underscoreResult;
     }
 
-    /**
-     * Determine if the given method is supported.
-     *
-     * @param $method
-     *
-     * @return bool
-     */
-    public function isSupportedMethod($method)
+    public function isSupportedMethod(string $method): bool
     {
         return array_key_exists($method, $this->underscoreMethods);
     }
 
-    /**
-     * Determine if the given method uses the string as it's first argument.
-     *
-     * @param $method
-     *
-     * @return bool
-     */
-    public function methodUsesStringAsFirstArgument($method)
+    public function methodUsesStringAsFirstArgument(string $method): bool
     {
         return $this->isSupportedMethod($method) ? $this->underscoreMethods[$method][0] : false;
     }
 
-    /**
-     * Determine if the given method returns a string.
-     *
-     * @param $method
-     *
-     * @return bool
-     */
-    public function methodReturnsAString($method)
+    public function methodReturnsAString(string $method): bool
     {
         return $this->isSupportedMethod($method) ? $this->underscoreMethods[$method][1] : false;
     }
