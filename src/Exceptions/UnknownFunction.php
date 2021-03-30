@@ -4,6 +4,6 @@ namespace Spatie\String\Exceptions;
 
 use Exception;
 
-class ErrorCreatingStringException extends Exception
+class UnknownFunction extends Exception
 {
 }

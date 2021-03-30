@@ -2,6 +2,13 @@
 
 All notable changes to `spatie/string` will be documented in this file
 
+## 3.0.0 - unreleased
+
+- Require PHP 8+
+- Drop support for all PHP 7.x versions
+- Use PHP 8 syntax where possible
+- Remove "Exception" suffix from exception classnames
+
 ## 2.2.3 - 2020-11-27
 
 - add support for PHP 8

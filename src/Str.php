@@ -3,10 +3,10 @@
 namespace Spatie\String;
 
 use ArrayAccess;
+use Spatie\String\Exceptions\ErrorCreatingString;
+use Spatie\String\Exceptions\UnknownFunction;
+use Spatie\String\Exceptions\UnsetOffset;
 use Spatie\String\Integrations\Underscore;
-use Spatie\String\Exceptions\UnsetOffsetException;
-use Spatie\String\Exceptions\UnknownFunctionException;
-use Spatie\String\Exceptions\ErrorCreatingStringException;
 
 /**
  * Magic methods provided by underscore are documented here.
@@ -47,22 +47,16 @@ use Spatie\String\Exceptions\ErrorCreatingStringException;
  */
 class Str implements ArrayAccess
 {
-    /**
-     * @var string
-     */
-    protected $string;
+    protected string $string;
 
-    /**
-     * @param string $string
-     */
-    public function __construct($string = '')
+    public function __construct(mixed $string = '')
     {
         if (is_array($string)) {
-            throw new ErrorCreatingStringException('Can\'t create string from an array');
+            throw new ErrorCreatingString('Can\'t create string from an array');
         }
 
         if (is_object($string) && ! method_exists($string, '__toString')) {
-            throw new ErrorCreatingStringException(
+            throw new ErrorCreatingString(
                 'Can\'t create string from an object that doesn\'t implement __toString'
             );
         }
@@ -70,10 +64,7 @@ class Str implements ArrayAccess
         $this->string = (string) $string;
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->string;
     }
@@ -86,17 +77,17 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function between($start, $end)
+    public function between(string $start, string $end): static
     {
         if ($start == '' && $end == '') {
             return $this;
         }
 
-        if ($start != '' && strpos($this->string, $start) === false) {
+        if ($start != '' && ! str_contains($this->string, $start)) {
             return new static();
         }
 
-        if ($end != '' && strpos($this->string, $end) === false) {
+        if ($end != '' && ! str_contains($this->string, $end)) {
             return new static();
         }
 
@@ -115,22 +106,12 @@ class Str implements ArrayAccess
         return new static($middle);
     }
 
-    /**
-     * Convert the string to uppercase.
-     *
-     * @return \Spatie\String\Str
-     */
-    public function toUpper()
+    public function toUpper(): static
     {
         return new static(strtoupper($this->string));
     }
 
-    /**
-     * Convert the string to lowercase.
-     *
-     * @return \Spatie\String\Str
-     */
-    public function toLower()
+    public function toLower(): static
     {
         return new static(strtolower($this->string));
     }
@@ -147,11 +128,11 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function tease($length = 200, $moreTextIndicator = '...')
+    public function tease(int $length = 200, string $moreTextIndicator = '...'): static
     {
         $sanitizedString = $this->sanitizeForTease($this->string);
 
-        if (strlen($sanitizedString) == 0) {
+        if (strlen($sanitizedString) === 0) {
             return new static();
         }
 
@@ -165,14 +146,7 @@ class Str implements ArrayAccess
         return new static($shortenedString);
     }
 
-    /**
-     * Sanitize the string for teasing.
-     *
-     * @param $string
-     *
-     * @return string
-     */
-    private function sanitizeForTease($string)
+    private function sanitizeForTease(string $string): string
     {
         $string = trim($string);
 
@@ -185,17 +159,9 @@ class Str implements ArrayAccess
         return $string;
     }
 
-    /**
-     * Replace the first occurrence of a string.
-     *
-     * @param $search
-     * @param $replace
-     *
-     * @return \Spatie\String\Str
-     */
-    public function replaceFirst($search, $replace)
+    public function replaceFirst(mixed $search, string $replace): static
     {
-        if ($search == '') {
+        if ((string)$search === '') {
             return $this;
         }
 
@@ -210,17 +176,9 @@ class Str implements ArrayAccess
         return new static($resultString);
     }
 
-    /**
-     * Replace the last occurrence of a string.
-     *
-     * @param $search
-     * @param $replace
-     *
-     * @return \Spatie\String\Str
-     */
-    public function replaceLast($search, $replace)
+    public function replaceLast(mixed $search, string $replace): static
     {
-        if ($search == '') {
+        if ((string)$search === '') {
             return $this;
         }
 
@@ -242,7 +200,7 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function prefix($string)
+    public function prefix($string): static
     {
         return new static($string.$this->string);
     }
@@ -254,19 +212,12 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function suffix($string)
+    public function suffix(mixed $string): static
     {
         return new static($this->string.$string);
     }
 
-    /**
-     * Concatenate a string.
-     *
-     * @param $string
-     *
-     * @return \Spatie\String\Str
-     */
-    public function concat($string)
+    public function concat(mixed $string): static
     {
         return $this->suffix($string);
     }
@@ -276,9 +227,9 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function possessive()
+    public function possessive(): static
     {
-        if ($this->string == '') {
+        if ($this->string === '') {
             return new static();
         }
 
@@ -288,7 +239,7 @@ class Str implements ArrayAccess
             return new static($this->string.'s');
         }
 
-        return new static($this->string.'\''.($this->string[strlen($this->string) - 1] != 's' ? 's' : ''));
+        return new static($this->string.'\''.($this->string[strlen($this->string) - 1] !== 's' ? 's' : ''));
     }
 
     /**
@@ -301,7 +252,7 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function segment($delimiter, $index)
+    public function segment(string $delimiter, int $index): static
     {
         $segments = explode($delimiter, $this->string);
 
@@ -315,26 +266,12 @@ class Str implements ArrayAccess
         return new static($segment);
     }
 
-    /**
-     * Get the first segment from a string based on a delimiter.
-     *
-     * @param string $delimiter
-     *
-     * @return \Spatie\String\Str
-     */
-    public function firstSegment($delimiter)
+    public function firstSegment(string $delimiter): static
     {
         return (new static($this->string))->segment($delimiter, 0);
     }
 
-    /**
-     * Get the last segment from a string based on a delimiter.
-     *
-     * @param string $delimiter
-     *
-     * @return \Spatie\String\Str
-     */
-    public function lastSegment($delimiter)
+    public function lastSegment(string $delimiter): static
     {
         return (new static($this->string))->segment($delimiter, -1);
     }
@@ -346,33 +283,17 @@ class Str implements ArrayAccess
      *
      * @return \Spatie\String\Str
      */
-    public function pop($delimiter)
+    public function pop(string $delimiter): static
     {
         return (new static($this->string))->replaceLast($delimiter.$this->lastSegment($delimiter), '');
     }
 
-    /**
-     * Strip whitespace (or other characters) from the beginning and end of a string.
-     *
-     * @param string $characterMask
-     *
-     * @return \Spatie\String\Str
-     */
-    public function trim($characterMask = " \t\n\r\0\x0B")
+    public function trim(string $characterMask = " \t\n\r\0\x0B"): static
     {
         return new static(trim($this->string, $characterMask));
     }
 
-    /**
-     * Alias for find.
-     *
-     * @param array|string $needle
-     * @param bool         $caseSensitive
-     * @param bool         $absolute
-     *
-     * @return bool
-     */
-    public function contains($needle, $caseSensitive = false, $absolute = false)
+    public function contains(array | string $needle, bool $caseSensitive = false, bool $absolute = false): bool
     {
         return $this->find($needle, $caseSensitive, $absolute);
     }
@@ -383,9 +304,9 @@ class Str implements ArrayAccess
      * @param $method
      * @param $args
      *
-     * @throws UnknownFunctionException
-     *
      * @return mixed|\Spatie\String\Str
+     *@throws UnknownFunction
+     *
      */
     public function __call($method, $args)
     {
@@ -395,64 +316,28 @@ class Str implements ArrayAccess
             return $underscore->call($this, $method, $args);
         }
 
-        throw new UnknownFunctionException(sprintf('String function %s does not exist', $method));
+        throw new UnknownFunction(sprintf('String function %s does not exist', $method));
     }
 
-    /**
-     * Whether a offset exists.
-     *
-     * @link http://php.net/manual/en/arrayaccess.offsetexists.php
-     *
-     * @param mixed $offset An offset to check for.
-     *
-     * @return bool true on success or false on failure.
-     *              The return value will be casted to boolean if non-boolean was returned.
-     */
     public function offsetExists($offset)
     {
         return strlen($this->string) >= ($offset + 1);
     }
 
-    /**
-     * Offset to retrieve.
-     *
-     * @link http://php.net/manual/en/arrayaccess.offsetget.php
-     *
-     * @param mixed $offset The offset to retrieve.
-     *
-     * @return mixed Can return all value types.
-     */
     public function offsetGet($offset)
     {
-        $character = substr($this->string, $offset, 1);
+        $character = $this->string[$offset] ?? '';
 
-        return new static($character ?: '');
+        return new static($character);
     }
 
-    /**
-     * Offset to set.
-     *
-     * @link http://php.net/manual/en/arrayaccess.offsetset.php
-     *
-     * @param mixed $offset The offset to assign the value to.
-     * @param mixed $value  The value to set.
-     */
     public function offsetSet($offset, $value)
     {
         $this->string[$offset] = $value;
     }
 
-    /**
-     * Offset to unset.
-     *
-     * @link http://php.net/manual/en/arrayaccess.offsetunset.php
-     *
-     * @param mixed $offset The offset to unset.
-     *
-     * @throws UnsetOffsetException
-     */
     public function offsetUnset($offset)
     {
-        throw new UnsetOffsetException();
+        throw new UnsetOffset();
     }
 }
