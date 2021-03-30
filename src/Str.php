@@ -3,10 +3,10 @@
 namespace Spatie\String;
 
 use ArrayAccess;
-use Spatie\String\Integrations\Underscore;
-use Spatie\String\Exceptions\UnsetOffset;
-use Spatie\String\Exceptions\UnknownFunction;
 use Spatie\String\Exceptions\ErrorCreatingString;
+use Spatie\String\Exceptions\UnknownFunction;
+use Spatie\String\Exceptions\UnsetOffset;
+use Spatie\String\Integrations\Underscore;
 
 /**
  * Magic methods provided by underscore are documented here.
