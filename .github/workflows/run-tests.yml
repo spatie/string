@@ -11,7 +11,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
-                php: [8.1, 8.0]
+                php: [8.2, 8.1, 8.0]
                 dependency-version: [prefer-lowest, prefer-stable]
                 os: [ubuntu-latest, windows-latest]
 
@@ -38,7 +38,7 @@ jobs:
               run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
             - name: Configure matchers
-              uses: mheap/phpunit-matcher-action@master
+              uses: mheap/phpunit-matcher-action@v1
 
             - name: Execute tests
               run: vendor/bin/phpunit --teamcity
