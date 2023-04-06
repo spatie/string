@@ -55,7 +55,7 @@ You can also use offsets to manipulate a string.
 ```php
 echo string('hello')[1]->toUpper(); //outputs "E"
 
-$string = string('gray');
+$string = string('grey');
 $string[2] = 'e';
 echo $string->toUpper(); //outputs "GREY"
 ```
