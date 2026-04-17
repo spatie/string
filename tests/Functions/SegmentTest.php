@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class SegmentTest extends TestCase
 {
@@ -51,9 +52,9 @@ class SegmentTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('foo/bar/baz')->segment('/', 0));
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('foo/bar/baz')->firstSegment('/'));
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('foo/bar/baz')->lastSegment('/'));
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('foo/bar/baz')->pop('/'));
+        $this->assertInstanceOf(Str::class, string('foo/bar/baz')->segment('/', 0));
+        $this->assertInstanceOf(Str::class, string('foo/bar/baz')->firstSegment('/'));
+        $this->assertInstanceOf(Str::class, string('foo/bar/baz')->lastSegment('/'));
+        $this->assertInstanceOf(Str::class, string('foo/bar/baz')->pop('/'));
     }
 }

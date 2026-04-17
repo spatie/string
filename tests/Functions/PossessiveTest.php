@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class PossessiveTest extends TestCase
 {
@@ -22,7 +23,7 @@ class PossessiveTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('Bob')->possessive());
+        $this->assertInstanceOf(Str::class, string('Bob')->possessive());
     }
 
     /** @test */

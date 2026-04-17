@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class BetweenTest extends TestCase
 {
@@ -37,13 +38,13 @@ class BetweenTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_everything_after_the_start_if_end_is_an_emptyString()
+    public function it_returns_everything_after_the_start_if_end_is_an_empty_string()
     {
         $this->assertEquals('MiddleEnd', (string) string('StartMiddleEnd')->between('Start', ''));
     }
 
     /** @test */
-    public function it_returns_everything_until_the_end_if_start_is_an_emptyString()
+    public function it_returns_everything_until_the_end_if_start_is_an_empty_string()
     {
         $this->assertEquals('StartMiddle', (string) string('StartMiddleEnd')->between('', 'End'));
     }
@@ -57,6 +58,6 @@ class BetweenTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->between('', ''));
+        $this->assertInstanceOf(Str::class, string('test')->between('', ''));
     }
 }

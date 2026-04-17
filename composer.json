@@ -22,6 +22,7 @@
         "anahkiasen/underscore-php": "^2.0"
     },
     "require-dev": {
+        "laravel/pint": "^1.0",
         "phpunit/phpunit" : "^9.5"
     },
     "autoload": {
@@ -36,6 +37,7 @@
         }
     },
     "scripts": {
+        "format": "vendor/bin/pint",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },

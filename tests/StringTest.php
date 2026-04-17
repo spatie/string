@@ -4,13 +4,14 @@ namespace Spatie\String\Test;
 
 use PHPUnit\Framework\TestCase;
 use Spatie\String\Exceptions\ErrorCreatingString;
+use Spatie\String\Str;
 
 class StringTest extends TestCase
 {
     /** @test */
     public function the_string_function_returns_a_string_instance()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('test'));
+        $this->assertInstanceOf(Str::class, string('test'));
     }
 
     /** @test */
@@ -46,7 +47,7 @@ class StringTest extends TestCase
     {
         $this->expectException(ErrorCreatingString::class);
 
-        string(new \StdClass());
+        string(new \StdClass);
     }
 
     /** @test */
