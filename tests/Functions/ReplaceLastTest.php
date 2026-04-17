@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class ReplaceLastTest extends TestCase
 {
@@ -34,6 +35,6 @@ class ReplaceLastTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->replaceLast('search', 'replace'));
+        $this->assertInstanceOf(Str::class, string('test')->replaceLast('search', 'replace'));
     }
 }

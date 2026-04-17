@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class ToLowerTest extends TestCase
 {
@@ -15,6 +16,6 @@ class ToLowerTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->toLower());
+        $this->assertInstanceOf(Str::class, string('test')->toLower());
     }
 }

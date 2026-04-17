@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class SuffixTest extends TestCase
 {
@@ -15,6 +16,6 @@ class SuffixTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('hello')->suffix(' world'));
+        $this->assertInstanceOf(Str::class, string('hello')->suffix(' world'));
     }
 }

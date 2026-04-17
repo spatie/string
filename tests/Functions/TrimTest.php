@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class TrimTest extends TestCase
 {
@@ -21,6 +22,6 @@ class TrimTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string(' foo ')->trim());
+        $this->assertInstanceOf(Str::class, string(' foo ')->trim());
     }
 }

@@ -8,7 +8,7 @@ class Underscore
 {
     protected array $underscoreMethods =
         [
-            //name, firstArgumentIsString, returnsAString
+            // name, firstArgumentIsString, returnsAString
             'accord' => [false, true],
             'random' => [false, true],
             'quickRandom' => [false, true],
@@ -43,11 +43,7 @@ class Underscore
         ];
 
     /**
-     * @param \Spatie\String\Str $string
-     * @param string             $method
-     * @param array              $args
-     *
-     * @return mixed|\Spatie\String\Str
+     * @return mixed|Str
      */
     public function call(Str $string, string $method, array $args)
     {

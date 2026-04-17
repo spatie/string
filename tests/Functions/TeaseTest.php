@@ -3,6 +3,7 @@
 namespace Spatie\String\Test\Functions;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\String\Str;
 
 class TeaseTest extends TestCase
 {
@@ -25,7 +26,7 @@ class TeaseTest extends TestCase
     }
 
     /** @test */
-    public function it_can_shorten_a_text_in_a_beautiful_way_to_a_specified_length_with_a_custom_moreTextIndicator()
+    public function it_can_shorten_a_text_in_a_beautiful_way_to_a_specified_length_with_a_custom_more_text_indicator()
     {
         $this->assertEquals('Now that!', (string) string($this->longText)->tease(10, '!'));
     }
@@ -69,6 +70,6 @@ class TeaseTest extends TestCase
     /** @test */
     public function it_is_chainable()
     {
-        $this->assertInstanceOf(\Spatie\String\Str::class, string('test')->tease());
+        $this->assertInstanceOf(Str::class, string('test')->tease());
     }
 }
