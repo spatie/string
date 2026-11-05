@@ -309,24 +309,24 @@ class Str implements ArrayAccess
         throw new UnknownFunction(sprintf('String function %s does not exist', $method));
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return strlen($this->string) >= ($offset + 1);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         $character = $this->string[$offset] ?? '';
 
         return new static($character);
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->string[$offset] = $value;
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new UnsetOffset;
     }
